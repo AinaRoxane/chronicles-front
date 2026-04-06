@@ -1,0 +1,11 @@
+.main-container {
+    padding-top: 30px;
+}
+
+.row-section {
+    margin-top: 80px;
+    padding: 20px 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}

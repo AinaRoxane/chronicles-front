@@ -1,0 +1,15 @@
+.section-divider {
+    height: 1px;
+    width: 100px;
+    background-color: var(--color-black);
+    margin-bottom: 30px;
+}
+
+.book-cover {
+    border-radius: var(--radius-sm);
+}
+
+.drawing-hello {
+    height: 45vh;
+    width: auto;
+}

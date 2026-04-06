@@ -1,0 +1,17 @@
+:root {
+    --color-black: #181616;
+    --color-blue: #7dadec;
+    --color-red: #e74d3c;
+    --color-white: #ffffff;
+
+    --color-gold: #fcf8f6fa;
+    --color-light-grey: #a8a8a8;
+
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    --radius-sm: 5px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    --transition-fast: 0.2s ease;
+}

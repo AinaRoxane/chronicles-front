@@ -1,0 +1,19 @@
+body {
+    background-color: var(--color-white);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-black);
+}
+
+h1,
+h2,
+.alfa {
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+hr {
+    border-top: 1px solid var(--color-black);
+    opacity: 1;
+    margin: 40px 0;
+}
