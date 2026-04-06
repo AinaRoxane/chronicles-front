@@ -9,7 +9,14 @@ class LoginService {
     data: LoginRequest
   ): Promise<AxiosResponse<SuccessResponse<LoginResponse>>> {
     return await errorHandlerWrapper(() =>
-      apiClient.post<SuccessResponse<LoginResponse>>("/auth/login", data)
+      apiClient.post<SuccessResponse<LoginResponse>>("public/auth/login", data)
+    );
+  }
+
+  // Fetch new tokens using refresh token
+  public async refreshToken(refreshToken: string): Promise<AxiosResponse<SuccessResponse<LoginResponse>>> {
+    return await errorHandlerWrapper(() =>
+      apiClient.post<SuccessResponse<LoginResponse>>("public/auth/refresh-token", { refreshToken })
     );
   }
 }

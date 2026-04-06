@@ -44,19 +44,18 @@ apiClient.interceptors.response.use(
             }
 
             try {
-                // Call your /auth/refresh endpoint
-                const res = await axios.post(`${BACKEND_URL}/auth/refresh`, {
-                    refreshToken,
-                });
-
-                const newAccessToken = res.data.data.accessToken;
-                const newRefreshToken = res.data.data.refreshToken;
+                // Use loginService to fetch new tokens (returns UserTokenData)
+                const { loginService } = await import("@/services/auth/login.service");
+                const res = await loginService.refreshToken(refreshToken);
+                const userData = res.data.data;
+                const newAccessToken = userData.jwt;
+                const newRefreshToken = userData.refreshToken;
 
                 // Update Redux + localStorage
                 store.dispatch(setAuth({
                     token: newAccessToken,
                     refreshToken: newRefreshToken,
-                    user: state.auth.user!, // keep existing user info
+                    user: userData,
                 }));
 
                 // Retry original request with new token
