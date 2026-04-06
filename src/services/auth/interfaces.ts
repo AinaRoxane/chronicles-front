@@ -26,5 +26,4 @@ export interface LoginRequest {
   password: string;
 }
 
-// LoginResponse is now just UserTokenData
 export type LoginResponse = UserTokenData;
