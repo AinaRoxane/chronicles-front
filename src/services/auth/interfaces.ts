@@ -18,7 +18,6 @@ export interface UserTokenData {
   roles: string[];
   profile: UserProfile;
   jwt: string;
-  refreshToken: string;
 }
 
 export interface LoginRequest {

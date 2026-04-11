@@ -9,6 +9,7 @@ const apiClient = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
+    withCredentials: true, // Send cookies (for refresh token)
 });
 
 // Attach access token to requests
@@ -34,27 +35,16 @@ apiClient.interceptors.response.use(
         if (error.response?.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
 
-            const state = store.getState();
-            const refreshToken = state.auth.refreshToken;
-
-            if (!refreshToken) {
-                // No refresh token → logout
-                store.dispatch(logout());
-                return Promise.reject(error);
-            }
-
             try {
                 // Use loginService to fetch new tokens (returns UserTokenData)
                 const { loginService } = await import("@/services/auth/login.service");
-                const res = await loginService.refreshToken(refreshToken);
+                const res = await loginService.refreshToken();
                 const userData = res.data.data;
                 const newAccessToken = userData.jwt;
-                const newRefreshToken = userData.refreshToken;
 
                 // Update Redux + localStorage
                 store.dispatch(setAuth({
                     token: newAccessToken,
-                    refreshToken: newRefreshToken,
                     user: userData,
                 }));
 

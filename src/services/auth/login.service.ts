@@ -9,14 +9,20 @@ class LoginService {
     data: LoginRequest
   ): Promise<AxiosResponse<SuccessResponse<LoginResponse>>> {
     return await errorHandlerWrapper(() =>
-      apiClient.post<SuccessResponse<LoginResponse>>("public/auth/login", data)
+      apiClient.post<SuccessResponse<LoginResponse>>("public/auth/login", data, { withCredentials: true })
     );
   }
 
-  // Fetch new tokens using refresh token
-  public async refreshToken(refreshToken: string): Promise<AxiosResponse<SuccessResponse<LoginResponse>>> {
+  // Refresh token is sent via httpOnly cookie, no body needed
+  public async refreshToken(): Promise<AxiosResponse<SuccessResponse<LoginResponse>>> {
     return await errorHandlerWrapper(() =>
-      apiClient.post<SuccessResponse<LoginResponse>>("public/auth/refresh-token", { refreshToken })
+      apiClient.post<SuccessResponse<LoginResponse>>("public/auth/refresh-token", {}, { withCredentials: true })
+    );
+  }
+
+  public async logout(): Promise<AxiosResponse<SuccessResponse<void>>> {
+    return await errorHandlerWrapper(() =>
+      apiClient.post<SuccessResponse<void>>("public/auth/logout", {}, { withCredentials: true })
     );
   }
 }
