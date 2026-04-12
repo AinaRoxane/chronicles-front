@@ -39,8 +39,6 @@ export default function RightSidebar() {
         typingTimeout.current = setTimeout(() => setLoading(false), 900);
     }
 
-    // Desktop: 3-col row (icon | input | loading dots)
-    // Mobile: icon only (top right)
     return (
         <aside className="h-100 p-3">
             {/* Desktop */}
