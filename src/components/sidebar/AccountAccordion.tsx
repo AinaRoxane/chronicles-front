@@ -24,13 +24,34 @@ const accountItems = [
     },
 ];
 
-export default function AccountAccordion() {
+type AccountAccordionProps = {
+    collapsed?: boolean;
+    defaultOpen?: boolean;
+};
+
+export default function AccountAccordion({ collapsed = false, defaultOpen = false }: AccountAccordionProps) {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const isAccountRoute = pathname.startsWith("/account");
-    const [isOpen, setIsOpen] = useState(isAccountRoute);
+    const [isOpen, setIsOpen] = useState(isAccountRoute || defaultOpen);
 
     const activeSection = useMemo(() => searchParams.get("section"), [searchParams]);
+
+    if (collapsed) {
+        return (
+            <Link
+                href="/account?section=profile"
+                aria-label="Account"
+                className={`sidebar-nav-item d-flex align-items-center justify-content-center px-2 py-2 ${isAccountRoute ? "active" : ""
+                    }`}
+            >
+                <span aria-hidden="true" className="d-inline-flex align-items-center">
+                    <PersonOutlineOutlinedIcon fontSize="small" />
+                </span>
+                <span className="visually-hidden">Account</span>
+            </Link>
+        );
+    }
 
     return (
         <div>

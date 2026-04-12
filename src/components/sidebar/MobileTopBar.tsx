@@ -1,17 +1,52 @@
+
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import LeftSidebar from "@/components/sidebar/LeftSidebar";
 
 type MobileTopBarProps = {
     children: ReactNode;
 };
 
 export default function MobileTopBar({ children }: MobileTopBarProps) {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
     return (
-        <div className="d-md-none shell-root">
+        <div className="d-md-none shell-root position-relative" style={{ overflow: sidebarOpen ? "hidden" : undefined }}>
+            {/* Overlay and sidebar */}
+            {sidebarOpen && (
+                <>
+                    <div
+                        className="position-fixed top-0 start-0 w-100 h-100"
+                        style={{ background: "rgba(0,0,0,0.35)", zIndex: 1040 }}
+                        onClick={() => setSidebarOpen(false)}
+                        aria-label="Close sidebar overlay"
+                    />
+                    <div
+                        className="position-fixed top-0 start-0 h-100 bg-white shadow"
+                        style={{
+                            width: 260,
+                            maxWidth: "80vw",
+                            zIndex: 1050,
+                            transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
+                            transition: "transform 0.3s cubic-bezier(.4,0,.2,1)",
+                        }}
+                        aria-label="Mobile navigation sidebar"
+                    >
+                        <LeftSidebar isCollapsed={false} />
+                    </div>
+                </>
+            )}
             <div className="container-fluid h-100">
-                <div className="row">
+                <div className="row shell-divider-bottom pb-2">
                     <aside className="col-1 d-flex justify-content-center pt-3">
-                        <p className="brand-logo brand-logo-mobile">m.</p>
+                        <button
+                            type="button"
+                            className="bg-transparent border-0 p-0"
+                            aria-label="Open navigation menu"
+                            onClick={() => setSidebarOpen(true)}
+                        >
+                            <p className="brand-logo brand-logo-mobile mb-0">m.</p>
+                        </button>
                     </aside>
                     <div className="col-10"></div>
                     <aside className="col-1 d-flex pt-3">
@@ -20,12 +55,8 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                         </button>
                     </aside>
                 </div>
-                <div className="row">
-                    <div className="col-1"></div>
-                    <div className="col-10">
-                        <main className="col-10 shell-scroll p-3">{children}</main>
-                    </div>
-                    <div className="col-1"></div>
+                <div className="row m-2">
+                    <main className="shell-scroll">{children}</main>
                 </div>
             </div>
         </div>
