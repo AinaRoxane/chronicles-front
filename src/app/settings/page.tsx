@@ -30,10 +30,10 @@ export default function SettingsPage() {
                     <h1 className="h5 shell-divider-bottom pb-3">{t("#400title01")}</h1>
                     {/* system language selector */}
                     <div className="row ">
-                        <div className="col-8">
+                        <div className="col-7">
                             <p className="mb-2">{t("#400label01")}</p>
                         </div>
-                        <div className="col-4">
+                        <div className="col-5">
                             <select
                                 id="system-language"
                                 className="form-select"

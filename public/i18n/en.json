@@ -1,0 +1,146 @@
+{
+    "section_page": [
+        {
+            "component_id": "#000body01",
+            "translation": "This section is ready for your next feature."
+        }
+    ],
+    "home_page": [
+        {
+            "component_id": "#100title01",
+            "translation": "Home"
+        }
+    ],
+    "explore_page": [
+        {
+            "component_id": "#200title01",
+            "translation": "Explore"
+        }
+    ],
+    "account_page": [
+        {
+            "component_id": "#300title01",
+            "translation": "Account"
+        }
+    ],
+    "settings_page": [
+        {
+            "component_id": "#400title01",
+            "translation": "Settings"
+        },
+        {
+            "component_id": "#400label01",
+            "translation": "Default system language"
+        },
+        {
+            "component_id": "#400label02",
+            "translation": "Language"
+        },
+        {
+            "component_id": "#400placeholder01",
+            "translation": "Choose a language"
+        },
+        {
+            "component_id": "#400status01",
+            "translation": "Loading languages..."
+        }
+    ],
+    "search_page": [
+        {
+            "component_id": "#500title01",
+            "translation": "Search"
+        }
+    ],
+    "left_sidebar": [
+        {
+            "component_id": "#600logo01",
+            "translation": "m."
+        },
+        {
+            "component_id": "#600logo02",
+            "translation": "m."
+        },
+        {
+            "component_id": "#600nav01",
+            "translation": "Home"
+        },
+        {
+            "component_id": "#600nav02",
+            "translation": "Explore"
+        },
+        {
+            "component_id": "#600nav03",
+            "translation": "Settings"
+        },
+        {
+            "component_id": "#600footer01",
+            "translation": "About"
+        },
+        {
+            "component_id": "#600footer02",
+            "translation": "Contact"
+        },
+        {
+            "component_id": "#600aria01",
+            "translation": "Expand sidebar"
+        },
+        {
+            "component_id": "#600aria02",
+            "translation": "Collapse sidebar"
+        }
+    ],
+    "account_accordion": [
+        {
+            "component_id": "#700title01",
+            "translation": "Account"
+        },
+        {
+            "component_id": "#700item01",
+            "translation": "Profile"
+        },
+        {
+            "component_id": "#700item02",
+            "translation": "Notifications"
+        },
+        {
+            "component_id": "#700item03",
+            "translation": "Purchases"
+        },
+        {
+            "component_id": "#700item04",
+            "translation": "Subscriptions"
+        }
+    ],
+    "right_sidebar": [
+        {
+            "component_id": "#800search01",
+            "translation": "Search..."
+        },
+        {
+            "component_id": "#800aria01",
+            "translation": "Search chronicles"
+        },
+        {
+            "component_id": "#800aria02",
+            "translation": "Open search"
+        }
+    ],
+    "mobile_topbar": [
+        {
+            "component_id": "#900aria01",
+            "translation": "Open navigation menu"
+        },
+        {
+            "component_id": "#900aria02",
+            "translation": "Close sidebar overlay"
+        },
+        {
+            "component_id": "#900aria03",
+            "translation": "Mobile navigation sidebar"
+        },
+        {
+            "component_id": "#900aria04",
+            "translation": "Open search"
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 export type TranslationRow = {
     component_id: string;
-    languages: Record<string, string>;
+    translation: string;
 };
 
 export type TranslationPayload = Record<string, TranslationRow[]>;
-export type TranslationIndex = Record<string, Record<string, Record<string, string>>>;
+export type TranslationIndex = Record<string, Record<string, string>>;
 
 export function normalizeLangCode(langCode: string): string {
     return langCode.trim().toUpperCase();
@@ -17,15 +17,11 @@ export function buildTranslationIndex(payload: TranslationPayload): TranslationI
         index[pageTitle] = {};
 
         for (const row of rows) {
-            if (!row.component_id || !row.languages) {
+            if (!row.component_id || !row.translation) {
                 continue;
             }
 
-            index[pageTitle][row.component_id] = {};
-
-            for (const [langCode, translatedValue] of Object.entries(row.languages)) {
-                index[pageTitle][row.component_id][normalizeLangCode(langCode)] = translatedValue;
-            }
+            index[pageTitle][row.component_id] = row.translation;
         }
     }
 
@@ -35,32 +31,24 @@ export function buildTranslationIndex(payload: TranslationPayload): TranslationI
 export function getTranslatedText(
     index: TranslationIndex,
     pageTitle: string,
-    componentId: string,
-    languageCode: string,
-    fallbackLanguage = "EN"
+    componentId: string
 ): string {
     const pageMap = index[pageTitle];
     if (!pageMap) {
         return componentId;
     }
 
-    const componentMap = pageMap[componentId];
-    if (!componentMap) {
+    const translatedValue = pageMap[componentId];
+    if (!translatedValue) {
         return componentId;
     }
 
-    const langKey = normalizeLangCode(languageCode);
-    const fallbackKey = normalizeLangCode(fallbackLanguage);
-
-    return componentMap[langKey] || componentMap[fallbackKey] || componentId;
+    return translatedValue;
 }
 
 export function getPageTranslator(
     index: TranslationIndex,
-    pageTitle: string,
-    languageCode: string,
-    fallbackLanguage = "EN"
+    pageTitle: string
 ): (componentId: string) => string {
-    return (componentId: string) =>
-        getTranslatedText(index, pageTitle, componentId, languageCode, fallbackLanguage);
+    return (componentId: string) => getTranslatedText(index, pageTitle, componentId);
 }

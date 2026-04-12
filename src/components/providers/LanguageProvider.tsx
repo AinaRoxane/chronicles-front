@@ -77,6 +77,11 @@ function writePersistedLanguage(languageCode: string): void {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
 }
 
+function resolveLanguageFileCode(languageCode: string): string {
+    const normalized = normalizeLangCode(languageCode).toLowerCase();
+    return normalized.split("-")[0];
+}
+
 export default function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [index, setIndex] = useState<TranslationIndex>({});
     const [ready, setReady] = useState(false);
@@ -87,19 +92,61 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
         if (persisted) {
             setActiveLanguageState(persisted);
         }
+    }, []);
 
-        fetch("/system.translation.json")
+    useEffect(() => {
+        let ignore = false;
+
+        setReady(false);
+
+        const normalized = resolveLanguageFileCode(activeLanguage);
+        const targetUrl = `/i18n/${normalized}.json`;
+
+        fetch(targetUrl)
             .then(async (response) => {
+                if (!response.ok) {
+                    throw new Error("Missing translation file");
+                }
+
                 const payload = (await response.json()) as TranslationPayload;
-                setIndex(buildTranslationIndex(payload));
+                if (!ignore) {
+                    setIndex(buildTranslationIndex(payload));
+                }
             })
-            .catch(() => {
-                setIndex({});
+            .catch(async () => {
+                if (normalized === FALLBACK_LANGUAGE.toLowerCase()) {
+                    if (!ignore) {
+                        setIndex({});
+                    }
+                    return;
+                }
+
+                try {
+                    const fallbackResponse = await fetch(`/i18n/${FALLBACK_LANGUAGE.toLowerCase()}.json`);
+                    if (!fallbackResponse.ok) {
+                        throw new Error("Missing fallback translation file");
+                    }
+
+                    const fallbackPayload = (await fallbackResponse.json()) as TranslationPayload;
+                    if (!ignore) {
+                        setIndex(buildTranslationIndex(fallbackPayload));
+                    }
+                } catch {
+                    if (!ignore) {
+                        setIndex({});
+                    }
+                }
             })
             .finally(() => {
-                setReady(true);
+                if (!ignore) {
+                    setReady(true);
+                }
             });
-    }, []);
+
+        return () => {
+            ignore = true;
+        };
+    }, [activeLanguage]);
 
     useEffect(() => {
         if (typeof document !== "undefined") {
@@ -115,13 +162,13 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
 
     const t = useMemo(
         () => (pageTitle: string, componentId: string) =>
-            getTranslatedText(index, pageTitle, componentId, activeLanguage, FALLBACK_LANGUAGE),
-        [activeLanguage, index]
+            getTranslatedText(index, pageTitle, componentId),
+        [index]
     );
 
     const getPageT = useMemo(
-        () => (pageTitle: string) => getPageTranslator(index, pageTitle, activeLanguage, FALLBACK_LANGUAGE),
-        [activeLanguage, index]
+        () => (pageTitle: string) => getPageTranslator(index, pageTitle),
+        [index]
     );
 
     const contextValue: LanguageContextValue = {

@@ -1,0 +1,146 @@
+{
+    "section_page": [
+        {
+            "component_id": "#000body01",
+            "translation": "Cette section est prête pour votre prochaine fonctionnalité."
+        }
+    ],
+    "home_page": [
+        {
+            "component_id": "#100title01",
+            "translation": "Accueil"
+        }
+    ],
+    "explore_page": [
+        {
+            "component_id": "#200title01",
+            "translation": "Explorer"
+        }
+    ],
+    "account_page": [
+        {
+            "component_id": "#300title01",
+            "translation": "Compte"
+        }
+    ],
+    "settings_page": [
+        {
+            "component_id": "#400title01",
+            "translation": "Système"
+        },
+        {
+            "component_id": "#400label01",
+            "translation": "Langue par défaut"
+        },
+        {
+            "component_id": "#400label02",
+            "translation": "Langue"
+        },
+        {
+            "component_id": "#400placeholder01",
+            "translation": "Choisir une langue"
+        },
+        {
+            "component_id": "#400status01",
+            "translation": "chargement..."
+        }
+    ],
+    "search_page": [
+        {
+            "component_id": "#500title01",
+            "translation": "Recherche..."
+        }
+    ],
+    "left_sidebar": [
+        {
+            "component_id": "#600logo01",
+            "translation": "m."
+        },
+        {
+            "component_id": "#600logo02",
+            "translation": "m."
+        },
+        {
+            "component_id": "#600nav01",
+            "translation": "Accueil"
+        },
+        {
+            "component_id": "#600nav02",
+            "translation": "Explorer"
+        },
+        {
+            "component_id": "#600nav03",
+            "translation": "Paramètres"
+        },
+        {
+            "component_id": "#600footer01",
+            "translation": "À propos"
+        },
+        {
+            "component_id": "#600footer02",
+            "translation": "Contact"
+        },
+        {
+            "component_id": "#600aria01",
+            "translation": "Étendre la barre latérale"
+        },
+        {
+            "component_id": "#600aria02",
+            "translation": "Réduire la barre latérale"
+        }
+    ],
+    "account_accordion": [
+        {
+            "component_id": "#700title01",
+            "translation": "Compte"
+        },
+        {
+            "component_id": "#700item01",
+            "translation": "Profil"
+        },
+        {
+            "component_id": "#700item02",
+            "translation": "Notifications"
+        },
+        {
+            "component_id": "#700item03",
+            "translation": "Achats"
+        },
+        {
+            "component_id": "#700item04",
+            "translation": "Abonnements"
+        }
+    ],
+    "right_sidebar": [
+        {
+            "component_id": "#800search01",
+            "translation": "Rechercher..."
+        },
+        {
+            "component_id": "#800aria01",
+            "translation": "Rechercher dans chronicles"
+        },
+        {
+            "component_id": "#800aria02",
+            "translation": "Ouvrir la recherche"
+        }
+    ],
+    "mobile_topbar": [
+        {
+            "component_id": "#900aria01",
+            "translation": "Ouvrir le menu de navigation"
+        },
+        {
+            "component_id": "#900aria02",
+            "translation": "Fermer la superposition latérale"
+        },
+        {
+            "component_id": "#900aria03",
+            "translation": "Barre latérale de navigation mobile"
+        },
+        {
+            "component_id": "#900aria04",
+            "translation": "Ouvrir la recherche"
+        }
+    ]
+}

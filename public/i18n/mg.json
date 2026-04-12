@@ -1,0 +1,146 @@
+{
+    "section_page": [
+        {
+            "component_id": "#000body01",
+            "translation": "Vonona ho an'ny fanampim-panazavana manaraka ity fizarana ity."
+        }
+    ],
+    "home_page": [
+        {
+            "component_id": "#100title01",
+            "translation": "Fandraisana"
+        }
+    ],
+    "explore_page": [
+        {
+            "component_id": "#200title01",
+            "translation": "Hitety"
+        }
+    ],
+    "account_page": [
+        {
+            "component_id": "#300title01",
+            "translation": "Kaonty"
+        }
+    ],
+    "settings_page": [
+        {
+            "component_id": "#400title01",
+            "translation": "Fikirana"
+        },
+        {
+            "component_id": "#400label01",
+            "translation": "Fiteny fototra ampiasain'ny rafitra"
+        },
+        {
+            "component_id": "#400label02",
+            "translation": "Fiteny"
+        },
+        {
+            "component_id": "#400placeholder01",
+            "translation": "Misafidiana fiteny"
+        },
+        {
+            "component_id": "#400status01",
+            "translation": "Eo am-pamenoana ny lisitry ny fiteny..."
+        }
+    ],
+    "search_page": [
+        {
+            "component_id": "#500title01",
+            "translation": "Fikarohana"
+        }
+    ],
+    "left_sidebar": [
+        {
+            "component_id": "#600logo01",
+            "translation": "m."
+        },
+        {
+            "component_id": "#600logo02",
+            "translation": "m."
+        },
+        {
+            "component_id": "#600nav01",
+            "translation": "Fandraisana"
+        },
+        {
+            "component_id": "#600nav02",
+            "translation": "Hitety"
+        },
+        {
+            "component_id": "#600nav03",
+            "translation": "Fikirana"
+        },
+        {
+            "component_id": "#600footer01",
+            "translation": "Momba"
+        },
+        {
+            "component_id": "#600footer02",
+            "translation": "Hifandray"
+        },
+        {
+            "component_id": "#600aria01",
+            "translation": "Halalaho ny sisiny"
+        },
+        {
+            "component_id": "#600aria02",
+            "translation": "Hafintina ny sisiny"
+        }
+    ],
+    "account_accordion": [
+        {
+            "component_id": "#700title01",
+            "translation": "Kaonty"
+        },
+        {
+            "component_id": "#700item01",
+            "translation": "Mombamomba"
+        },
+        {
+            "component_id": "#700item02",
+            "translation": "Fampandrenesana"
+        },
+        {
+            "component_id": "#700item03",
+            "translation": "Fividianana"
+        },
+        {
+            "component_id": "#700item04",
+            "translation": "Famandrihana"
+        }
+    ],
+    "right_sidebar": [
+        {
+            "component_id": "#800search01",
+            "translation": "Mitady..."
+        },
+        {
+            "component_id": "#800aria01",
+            "translation": "Hitady ao amin'ny chronicles"
+        },
+        {
+            "component_id": "#800aria02",
+            "translation": "Sokafy ny fikarohana"
+        }
+    ],
+    "mobile_topbar": [
+        {
+            "component_id": "#900aria01",
+            "translation": "Sokafy ny menio fitetezana"
+        },
+        {
+            "component_id": "#900aria02",
+            "translation": "Akatona ny ambangovangony sisiny"
+        },
+        {
+            "component_id": "#900aria03",
+            "translation": "Sisiny fitetezana finday"
+        },
+        {
+            "component_id": "#900aria04",
+            "translation": "Sokafy ny fikarohana"
+        }
+    ]
+}
