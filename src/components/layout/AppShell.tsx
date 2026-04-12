@@ -14,7 +14,7 @@ export default function AppShell({ children }: AppShellProps) {
 
     return (
         <>
-            <div className="d-none d-md-block shell-root">
+            <div className="d-none d-lg-block shell-root">
                 <div className="container-fluid h-100">
                     <div className="row g-0 h-100">
                         <aside
@@ -47,6 +47,48 @@ export default function AppShell({ children }: AppShellProps) {
                         <aside className="col-3 shell-panel">
                             <RightSidebar />
                         </aside>
+                    </div>
+                </div>
+            </div>
+
+            <div className="d-none d-md-block d-lg-none shell-root">
+                <div className="container-fluid h-100">
+                    <div className="row g-0 h-100">
+                        <aside
+                            className={`${isSidebarCollapsed ? "col-2" : "col-3"} shell-panel shell-divider-right p-0`}
+                            style={{ position: "relative", height: "100%" }}
+                        >
+                            <div
+                                style={{
+                                    overflowY: "auto",
+                                    overflowX: "auto",
+                                    whiteSpace: "nowrap",
+                                    height: "100%",
+                                }}
+                                className="h-100"
+                            >
+                                <LeftSidebar
+                                    isCollapsed={isSidebarCollapsed}
+                                    onToggleCollapse={() => setIsSidebarCollapsed((prev) => !prev)}
+                                />
+                            </div>
+                        </aside>
+
+                        <main
+                            className={`${isSidebarCollapsed ? "col-10" : "col-9"} shell-panel shell-scroll p-3`}
+                            style={{ background: "var(--surface-main)" }}
+                        >
+                            <div className="row pb-2 mb-3">
+                                <RightSidebar />
+                            </div>
+                            <div className="row">
+                                <div className="col-1"></div>
+                                <div className="col-10">
+                                    {children}
+                                </div>
+                                <div className="col-1"></div>
+                            </div>
+                        </main>
                     </div>
                 </div>
             </div>
