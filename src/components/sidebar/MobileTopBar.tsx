@@ -1,7 +1,9 @@
+"use client";
 
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { ReactNode, useState } from "react";
 import LeftSidebar from "@/components/sidebar/LeftSidebar";
+import { usePageTranslation } from "@/components/providers/LanguageProvider";
 
 type MobileTopBarProps = {
     children: ReactNode;
@@ -9,6 +11,7 @@ type MobileTopBarProps = {
 
 export default function MobileTopBar({ children }: MobileTopBarProps) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const t = usePageTranslation("mobile_topbar");
 
     return (
         <div className="d-md-none shell-root position-relative" style={{ overflow: sidebarOpen ? "hidden" : undefined }}>
@@ -19,7 +22,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                         className="position-fixed top-0 start-0 w-100 h-100"
                         style={{ background: "rgba(0,0,0,0.35)", zIndex: 1040 }}
                         onClick={() => setSidebarOpen(false)}
-                        aria-label="Close sidebar overlay"
+                        aria-label={t("#900aria02")}
                     />
                     <div
                         className="position-fixed top-0 start-0 h-100 bg-white shadow"
@@ -30,7 +33,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                             transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
                             transition: "transform 0.3s cubic-bezier(.4,0,.2,1)",
                         }}
-                        aria-label="Mobile navigation sidebar"
+                        aria-label={t("#900aria03")}
                     >
                         <LeftSidebar isCollapsed={false} />
                     </div>
@@ -42,7 +45,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                         <button
                             type="button"
                             className="bg-transparent border-0 p-0"
-                            aria-label="Open navigation menu"
+                            aria-label={t("#900aria01")}
                             onClick={() => setSidebarOpen(true)}
                         >
                             <p className="brand-logo brand-logo-mobile mb-0">m.</p>
@@ -50,7 +53,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                     </aside>
                     <div className="col-8"></div>
                     <aside className="col-2 d-flex pt-3">
-                        <button type="button" className="btn btn-link p-0 text-dark" aria-label="Open search">
+                        <button type="button" className="btn btn-link p-0 text-dark" aria-label={t("#900aria04")}>
                             <SearchOutlinedIcon fontSize="small" />
                         </button>
                     </aside>

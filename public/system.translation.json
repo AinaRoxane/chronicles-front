@@ -1,0 +1,270 @@
+{
+    "section_page": [
+        {
+            "component_id": "#000body01",
+            "languages": {
+                "EN": "This section is ready for your next feature.",
+                "FR": "Cette section est prête pour votre prochaine fonctionnalité.",
+                "MG": "Vonona ho an'ny fanampim-panazavana manaraka ity fizarana ity."
+            }
+        }
+    ],
+    "home_page": [
+        {
+            "component_id": "#100title01",
+            "languages": {
+                "EN": "Home",
+                "FR": "Accueil",
+                "MG": "Fandraisana"
+            }
+        }
+    ],
+    "explore_page": [
+        {
+            "component_id": "#200title01",
+            "languages": {
+                "EN": "Explore",
+                "FR": "Explorer",
+                "MG": "Hitety"
+            }
+        }
+    ],
+    "account_page": [
+        {
+            "component_id": "#300title01",
+            "languages": {
+                "EN": "Account",
+                "FR": "Compte",
+                "MG": "Kaonty"
+            }
+        }
+    ],
+    "settings_page": [
+        {
+            "component_id": "#400title01",
+            "languages": {
+                "EN": "Settings",
+                "FR": "Système",
+                "MG": "Fikirana"
+            }
+        },
+        {
+            "component_id": "#400label01",
+            "languages": {
+                "EN": "Default system language",
+                "FR": "Langue par défaut",
+                "MG": "Fiteny fototra ampiasain'ny rafitra"
+            }
+        },
+        {
+            "component_id": "#400label02",
+            "languages": {
+                "EN": "Language",
+                "FR": "Langue",
+                "MG": "Fiteny"
+            }
+        },
+        {
+            "component_id": "#400placeholder01",
+            "languages": {
+                "EN": "Choose a language",
+                "FR": "Choisir une langue",
+                "MG": "Misafidiana fiteny"
+            }
+        },
+        {
+            "component_id": "#400status01",
+            "languages": {
+                "EN": "Loading languages...",
+                "FR": "Chargement des langues...",
+                "MG": "Eo am-pamenoana ny lisitry ny fiteny..."
+            }
+        }
+    ],
+    "search_page": [
+        {
+            "component_id": "#500title01",
+            "languages": {
+                "EN": "Search",
+                "FR": "Recherche",
+                "MG": "Fikarohana"
+            }
+        }
+    ],
+    "left_sidebar": [
+        {
+            "component_id": "#600logo01",
+            "languages": {
+                "EN": "m.",
+                "FR": "m.",
+                "MG": "m."
+            }
+        },
+        {
+            "component_id": "#600logo02",
+            "languages": {
+                "EN": "m.",
+                "FR": "m.",
+                "MG": "m."
+            }
+        },
+        {
+            "component_id": "#600nav01",
+            "languages": {
+                "EN": "Home",
+                "FR": "Accueil",
+                "MG": "Fandraisana"
+            }
+        },
+        {
+            "component_id": "#600nav02",
+            "languages": {
+                "EN": "Explore",
+                "FR": "Explorer",
+                "MG": "Hitety"
+            }
+        },
+        {
+            "component_id": "#600nav03",
+            "languages": {
+                "EN": "Settings",
+                "FR": "Paramètres",
+                "MG": "Fikirana"
+            }
+        },
+        {
+            "component_id": "#600footer01",
+            "languages": {
+                "EN": "About",
+                "FR": "À propos",
+                "MG": "Momba"
+            }
+        },
+        {
+            "component_id": "#600footer02",
+            "languages": {
+                "EN": "Contact",
+                "FR": "Contact",
+                "MG": "Hifandray"
+            }
+        },
+        {
+            "component_id": "#600aria01",
+            "languages": {
+                "EN": "Expand sidebar",
+                "FR": "Étendre la barre latérale",
+                "MG": "Halalaho ny sisiny"
+            }
+        },
+        {
+            "component_id": "#600aria02",
+            "languages": {
+                "EN": "Collapse sidebar",
+                "FR": "Réduire la barre latérale",
+                "MG": "Hafintina ny sisiny"
+            }
+        }
+    ],
+    "account_accordion": [
+        {
+            "component_id": "#700title01",
+            "languages": {
+                "EN": "Account",
+                "FR": "Compte",
+                "MG": "Kaonty"
+            }
+        },
+        {
+            "component_id": "#700item01",
+            "languages": {
+                "EN": "Profile",
+                "FR": "Profil",
+                "MG": "Mombamomba"
+            }
+        },
+        {
+            "component_id": "#700item02",
+            "languages": {
+                "EN": "Notifications",
+                "FR": "Notifications",
+                "MG": "Fampandrenesana"
+            }
+        },
+        {
+            "component_id": "#700item03",
+            "languages": {
+                "EN": "Purchases",
+                "FR": "Achats",
+                "MG": "Fividianana"
+            }
+        },
+        {
+            "component_id": "#700item04",
+            "languages": {
+                "EN": "Subscriptions",
+                "FR": "Abonnements",
+                "MG": "Famandrihana"
+            }
+        }
+    ],
+    "right_sidebar": [
+        {
+            "component_id": "#800search01",
+            "languages": {
+                "EN": "Search...",
+                "FR": "Rechercher...",
+                "MG": "Mitady..."
+            }
+        },
+        {
+            "component_id": "#800aria01",
+            "languages": {
+                "EN": "Search chronicles",
+                "FR": "Rechercher dans chronicles",
+                "MG": "Hitady ao amin'ny chronicles"
+            }
+        },
+        {
+            "component_id": "#800aria02",
+            "languages": {
+                "EN": "Open search",
+                "FR": "Ouvrir la recherche",
+                "MG": "Sokafy ny fikarohana"
+            }
+        }
+    ],
+    "mobile_topbar": [
+        {
+            "component_id": "#900aria01",
+            "languages": {
+                "EN": "Open navigation menu",
+                "FR": "Ouvrir le menu de navigation",
+                "MG": "Sokafy ny menio fitetezana"
+            }
+        },
+        {
+            "component_id": "#900aria02",
+            "languages": {
+                "EN": "Close sidebar overlay",
+                "FR": "Fermer la superposition laterale",
+                "MG": "Akatona ny ambangovangony sisiny"
+            }
+        },
+        {
+            "component_id": "#900aria03",
+            "languages": {
+                "EN": "Mobile navigation sidebar",
+                "FR": "Barre latérale de navigation mobile",
+                "MG": "Sisiny fitetezana finday"
+            }
+        },
+        {
+            "component_id": "#900aria04",
+            "languages": {
+                "EN": "Open search",
+                "FR": "Ouvrir la recherche",
+                "MG": "Sokafy ny fikarohana"
+            }
+        }
+    ]
+}

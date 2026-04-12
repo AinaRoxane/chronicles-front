@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { usePageTranslation } from "@/components/providers/LanguageProvider";
 
 function LoadingDots() {
     return (
@@ -31,6 +32,7 @@ export default function RightSidebar() {
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
     const typingTimeout = useRef<NodeJS.Timeout | null>(null);
+    const t = usePageTranslation("right_sidebar");
 
     function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
         setSearch(e.target.value);
@@ -43,13 +45,13 @@ export default function RightSidebar() {
         <aside className="h-100 p-3">
             {/* Desktop */}
             <div className="d-none d-md-block">
-                <form className="row align-items-center g-0" role="search" aria-label="Search chronicles" autoComplete="off">
+                <form className="row align-items-center g-0" role="search" aria-label={t("#800aria01")} autoComplete="off">
                     <div className="col-10 px-2">
                         <input
                             id="sidebar-search"
                             type="text"
                             className="form-control search-input"
-                            placeholder="Search..."
+                            placeholder={t("#800search01")}
                             name="q"
                             value={search}
                             onChange={handleInput}
@@ -64,7 +66,7 @@ export default function RightSidebar() {
 
             {/* Mobile: icon only, top right */}
             <div className="d-md-none d-flex justify-content-end">
-                <button type="button" className="btn btn-link p-0 text-dark" aria-label="Open search">
+                <button type="button" className="btn btn-link p-0 text-dark" aria-label={t("#800aria02")}>
                     <SearchOutlinedIcon fontSize="medium" />
                 </button>
             </div>

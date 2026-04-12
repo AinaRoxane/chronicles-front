@@ -6,19 +6,20 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
+import { usePageTranslation } from "@/components/providers/LanguageProvider";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 
 const accountItems = [
-    { label: "Profile", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" /> },
+    { labelId: "#700item01", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" /> },
     {
-        label: "Notifications",
+        labelId: "#700item02",
         section: "notifications",
         icon: <NotificationsNoneOutlinedIcon fontSize="small" />,
     },
-    { label: "Purchases", section: "purchases", icon: <ShoppingBagOutlinedIcon fontSize="small" /> },
+    { labelId: "#700item03", section: "purchases", icon: <ShoppingBagOutlinedIcon fontSize="small" /> },
     {
-        label: "Subscriptions",
+        labelId: "#700item04",
         section: "subscriptions",
         icon: <SubscriptionsOutlinedIcon fontSize="small" />,
     },
@@ -32,6 +33,7 @@ type AccountAccordionProps = {
 export default function AccountAccordion({ collapsed = false, defaultOpen = false }: AccountAccordionProps) {
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const t = usePageTranslation("account_accordion");
     const isAccountRoute = pathname.startsWith("/account");
     const [isOpen, setIsOpen] = useState(isAccountRoute || defaultOpen);
 
@@ -41,14 +43,14 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
         return (
             <Link
                 href="/account?section=profile"
-                aria-label="Account"
+                aria-label={t("#700title01")}
                 className={`sidebar-nav-item d-flex align-items-center justify-content-center px-2 py-2 ${isAccountRoute ? "active" : ""
                     }`}
             >
                 <span aria-hidden="true" className="d-inline-flex align-items-center">
                     <PersonOutlineOutlinedIcon fontSize="small" />
                 </span>
-                <span className="visually-hidden">Account</span>
+                <span className="visually-hidden">{t("#700title01")}</span>
             </Link>
         );
     }
@@ -64,7 +66,7 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
             >
                 <span className="d-flex align-items-center gap-2">
                     <PersonOutlineOutlinedIcon fontSize="small" />
-                    <span>Account</span>
+                    <span>{t("#700title01")}</span>
                 </span>
                 <ExpandMoreOutlinedIcon
                     fontSize="small"
@@ -86,7 +88,7 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
                                 <span aria-hidden="true" className="d-inline-flex align-items-center">
                                     {item.icon}
                                 </span>
-                                <span>{item.label}</span>
+                                <span>{t(item.labelId)}</span>
                             </Link>
                         );
                     })}

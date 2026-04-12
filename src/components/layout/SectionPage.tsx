@@ -1,17 +1,31 @@
+"use client";
+
 import AppShell from "@/components/layout/AppShell";
+import { usePageTranslation } from "@/components/providers/LanguageProvider";
 import { ReactNode } from "react";
 
 type SectionPageProps = {
-    title: string;
+    pageKey: string;
+    titleId: string;
+    showDefaultDescription?: boolean;
     children?: ReactNode;
 };
 
-export default function SectionPage({ title, children }: SectionPageProps) {
+export default function SectionPage({
+    pageKey,
+    titleId,
+    showDefaultDescription = true,
+    children,
+}: SectionPageProps) {
+    const pageT = usePageTranslation(pageKey);
+    const sharedT = usePageTranslation("section_page");
+
     return (
         <AppShell>
             <main>
-                <h1 className="h3 mb-3">{title}</h1>
-                <p className="text-secondary mb-0">This section is ready for your next feature.</p>
+                {showDefaultDescription ? (
+                    <p className="text-secondary mb-3">{sharedT("#000body01")}</p>
+                ) : null}
                 {children}
             </main>
         </AppShell>
