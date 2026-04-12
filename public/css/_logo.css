@@ -1,0 +1,17 @@
+.brand-logo {
+    margin: 0;
+    font-family: "Helvetica Neue", "SF Pro Display", "Segoe UI", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.brand-logo-desktop {
+    font-size: 2.2rem;
+}
+
+.brand-logo-mobile {
+    font-size: 2rem;
+}

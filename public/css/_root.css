@@ -1,0 +1,18 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-black-soft: #111111;
+    --color-gray-100: #f5f5f5;
+    --color-gray-200: #e5e5e5;
+    --color-gray-300: #d4d4d4;
+    --color-gray-500: #737373;
+    --color-blue-accent: #0a84ff;
+    --color-red-error: #ff3b30;
+
+    --surface-page: var(--color-white);
+    --surface-panel: var(--color-white);
+    --surface-main: var(--color-white);
+    --text-primary: var(--color-black);
+    --text-secondary: var(--color-gray-500);
+    --border-subtle: var(--color-gray-200);
+}
