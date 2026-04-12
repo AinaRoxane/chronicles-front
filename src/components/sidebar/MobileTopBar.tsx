@@ -38,7 +38,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
             )}
             <div className="container-fluid h-100">
                 <div className="row shell-divider-bottom pb-2">
-                    <aside className="col-1 d-flex justify-content-center pt-3">
+                    <aside className="col-2 d-flex justify-content-center pt-3">
                         <button
                             type="button"
                             className="bg-transparent border-0 p-0"
@@ -48,15 +48,19 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                             <p className="brand-logo brand-logo-mobile mb-0">m.</p>
                         </button>
                     </aside>
-                    <div className="col-10"></div>
-                    <aside className="col-1 d-flex pt-3">
+                    <div className="col-8"></div>
+                    <aside className="col-2 d-flex pt-3">
                         <button type="button" className="btn btn-link p-0 text-dark" aria-label="Open search">
                             <SearchOutlinedIcon fontSize="small" />
                         </button>
                     </aside>
                 </div>
-                <div className="row m-2">
-                    <main className="shell-scroll">{children}</main>
+                <div className="row p-2">
+                    <div className="col-1"></div>
+                    <div className="col-10">
+                        <main className="shell-scroll">{children}</main>
+                    </div>
+                    <div className="col-1"></div>
                 </div>
             </div>
         </div>

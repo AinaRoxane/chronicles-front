@@ -73,12 +73,12 @@ export default function LeftSidebar({ isCollapsed = false, onToggleCollapse }: L
             ) : (
                 <div className="mt-auto pt-3 shell-divider-top">
                     <div className="row justify-content-center g-0">
-                        <div className="col-auto px-2">
+                        <div className="col-auto">
                             <a href="#about" aria-label="About" className="text-secondary d-flex justify-content-center align-items-center">
                                 <InfoOutlinedIcon fontSize="small" />
                             </a>
                         </div>
-                        <div className="col-auto px-2">
+                        <div className="col-auto">
                             <a href="#contact" aria-label="Contact" className="text-secondary d-flex justify-content-center align-items-center">
                                 <AlternateEmailOutlinedIcon fontSize="small" />
                             </a>

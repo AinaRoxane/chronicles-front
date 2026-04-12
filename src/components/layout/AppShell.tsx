@@ -18,22 +18,33 @@ export default function AppShell({ children }: AppShellProps) {
                 <div className="container-fluid h-100">
                     <div className="row g-0 h-100">
                         <aside
-                            className={`${isSidebarCollapsed ? "col-1" : "col-2"} shell-panel shell-scroll shell-divider-right`}
+                            className={`${isSidebarCollapsed ? "col-1" : "col-2"} shell-panel shell-divider-right p-0`}
+                            style={{ position: "relative", height: "100%" }}
                         >
-                            <LeftSidebar
-                                isCollapsed={isSidebarCollapsed}
-                                onToggleCollapse={() => setIsSidebarCollapsed((prev) => !prev)}
-                            />
+                            <div
+                                style={{
+                                    overflowY: "auto",
+                                    overflowX: "auto",
+                                    whiteSpace: "nowrap",
+                                    height: "100%",
+                                }}
+                                className="h-100"
+                            >
+                                <LeftSidebar
+                                    isCollapsed={isSidebarCollapsed}
+                                    onToggleCollapse={() => setIsSidebarCollapsed((prev) => !prev)}
+                                />
+                            </div>
                         </aside>
 
                         <main
-                            className={`${isSidebarCollapsed ? "col-9" : "col-8"} shell-panel shell-scroll p-4`}
+                            className={`${isSidebarCollapsed ? "col-8" : "col-7"} shell-panel shell-scroll p-4`}
                             style={{ background: "var(--surface-main)" }}
                         >
                             {children}
                         </main>
 
-                        <aside className="col-2 shell-panel">
+                        <aside className="col-3 shell-panel">
                             <RightSidebar />
                         </aside>
                     </div>
