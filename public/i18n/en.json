@@ -9,6 +9,18 @@
         {
             "component_id": "#100title01",
             "translation": "Home"
+        },
+        {
+            "component_id": "#100notice01",
+            "translation": "You are currently logged out. Please login or signin for a better experience."
+        },
+        {
+            "component_id": "#100cta01",
+            "translation": "Login"
+        },
+        {
+            "component_id": "#100cta02",
+            "translation": "Sign in"
         }
     ],
     "explore_page": [
@@ -95,6 +107,18 @@
             "translation": "Account"
         },
         {
+            "component_id": "#700guest01",
+            "translation": "You are logged out"
+        },
+        {
+            "component_id": "#700guest02",
+            "translation": "Login"
+        },
+        {
+            "component_id": "#700guest03",
+            "translation": "Sign in"
+        },
+        {
             "component_id": "#700item01",
             "translation": "Profile"
         },
@@ -123,6 +147,44 @@
         {
             "component_id": "#800aria02",
             "translation": "Open search"
+        },
+        {
+            "component_id": "#800aria03",
+            "translation": "Logged out quick actions"
+        },
+        {
+            "component_id": "#800guest01",
+            "translation": "Continue after login or sign in"
+        },
+        {
+            "component_id": "#800guest02",
+            "translation": "Login"
+        },
+        {
+            "component_id": "#800guest03",
+            "translation": "Sign in"
+        }
+    ],
+    "guest_overlay": [
+        {
+            "component_id": "#950title01",
+            "translation": "Welcome to Chronicles"
+        },
+        {
+            "component_id": "#950body01",
+            "translation": "You are currently logged out. Login or sign in to unlock a better experience."
+        },
+        {
+            "component_id": "#950cta01",
+            "translation": "Login"
+        },
+        {
+            "component_id": "#950cta02",
+            "translation": "Sign in"
+        },
+        {
+            "component_id": "#950aria01",
+            "translation": "Close login prompt"
         }
     ],
     "mobile_topbar": [

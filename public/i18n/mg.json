@@ -9,6 +9,18 @@
         {
             "component_id": "#100title01",
             "translation": "Fandraisana"
+        },
+        {
+            "component_id": "#100notice01",
+            "translation": "Mivoaka ianao amin'izao fotoana izao. Midira na misorata anarana mba hahazoana traikefa tsara kokoa."
+        },
+        {
+            "component_id": "#100cta01",
+            "translation": "Miditra"
+        },
+        {
+            "component_id": "#100cta02",
+            "translation": "Misoratra anarana"
         }
     ],
     "explore_page": [
@@ -95,6 +107,18 @@
             "translation": "Kaonty"
         },
         {
+            "component_id": "#700guest01",
+            "translation": "Mivoaka ianao"
+        },
+        {
+            "component_id": "#700guest02",
+            "translation": "Miditra"
+        },
+        {
+            "component_id": "#700guest03",
+            "translation": "Misoratra anarana"
+        },
+        {
             "component_id": "#700item01",
             "translation": "Mombamomba"
         },
@@ -123,6 +147,44 @@
         {
             "component_id": "#800aria02",
             "translation": "Sokafy ny fikarohana"
+        },
+        {
+            "component_id": "#800aria03",
+            "translation": "Hetsika haingana rehefa mivoaka"
+        },
+        {
+            "component_id": "#800guest01",
+            "translation": "Tohizo rehefa miditra na misoratra anarana"
+        },
+        {
+            "component_id": "#800guest02",
+            "translation": "Miditra"
+        },
+        {
+            "component_id": "#800guest03",
+            "translation": "Misoratra anarana"
+        }
+    ],
+    "guest_overlay": [
+        {
+            "component_id": "#950title01",
+            "translation": "Tongasoa eto amin'ny Chronicles"
+        },
+        {
+            "component_id": "#950body01",
+            "translation": "Mivoaka ianao amin'izao fotoana izao. Midira na misorata anarana mba hahazoana traikefa tsara kokoa."
+        },
+        {
+            "component_id": "#950cta01",
+            "translation": "Miditra"
+        },
+        {
+            "component_id": "#950cta02",
+            "translation": "Misoratra anarana"
+        },
+        {
+            "component_id": "#950aria01",
+            "translation": "Akatona ny fanasana hiditra"
         }
     ],
     "mobile_topbar": [

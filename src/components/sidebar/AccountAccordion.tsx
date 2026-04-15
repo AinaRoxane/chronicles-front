@@ -9,6 +9,7 @@ import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined
 import { usePageTranslation } from "@/components/providers/LanguageProvider";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
+import { useAuthStatus } from "@/components/providers/AuthStatusProvider";
 
 const accountItems = [
     { labelId: "#700item01", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" /> },
@@ -34,10 +35,15 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const t = usePageTranslation("account_accordion");
+    const { isLoggedIn } = useAuthStatus();
     const isAccountRoute = pathname.startsWith("/account");
     const [isOpen, setIsOpen] = useState(isAccountRoute || defaultOpen);
 
     const activeSection = useMemo(() => searchParams.get("section"), [searchParams]);
+
+    if (!isLoggedIn) {
+        return null;
+    }
 
     if (collapsed) {
         return (

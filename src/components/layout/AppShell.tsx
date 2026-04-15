@@ -3,6 +3,8 @@
 import LeftSidebar from "@/components/sidebar/LeftSidebar";
 import RightSidebar from "@/components/sidebar/RightSidebar";
 import MobileTopBar from "@/components/sidebar/MobileTopBar";
+import GuestPromptProvider from "@/components/providers/GuestPromptProvider";
+import GuestOverlay from "@/components/overlay/GuestOverlay";
 import { ReactNode, useState } from "react";
 
 type AppShellProps = {
@@ -13,7 +15,9 @@ export default function AppShell({ children }: AppShellProps) {
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
     return (
-        <>
+        <GuestPromptProvider>
+            <GuestOverlay />
+
             <div className="d-none d-lg-block shell-root">
                 <div className="container-fluid h-100">
                     <div className="row g-0 h-100">
@@ -94,6 +98,6 @@ export default function AppShell({ children }: AppShellProps) {
             </div>
 
             <MobileTopBar>{children}</MobileTopBar>
-        </>
+        </GuestPromptProvider>
     );
 }

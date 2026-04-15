@@ -2,6 +2,8 @@
 import { useState, useRef } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { usePageTranslation } from "@/components/providers/LanguageProvider";
+import Link from "next/link";
+import { useGuestPrompt } from "@/components/providers/GuestPromptProvider";
 
 function LoadingDots() {
     return (
@@ -33,6 +35,7 @@ export default function RightSidebar() {
     const [loading, setLoading] = useState(false);
     const typingTimeout = useRef<NodeJS.Timeout | null>(null);
     const t = usePageTranslation("right_sidebar");
+    const { shouldShowCompactPrompt } = useGuestPrompt();
 
     function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
         setSearch(e.target.value);
@@ -62,6 +65,20 @@ export default function RightSidebar() {
                         {loading ? <LoadingDots /> : <SearchOutlinedIcon fontSize="small" />}
                     </div>
                 </form>
+
+                {shouldShowCompactPrompt ? (
+                    <section className="guest-teaser-card mt-4" aria-label={t("#800aria03")}>
+                        <p className="small text-secondary mb-2">{t("#800guest01")}</p>
+                        <div className="d-flex gap-2">
+                            <Link href="/auth/login" className="guest-teaser-btn guest-teaser-btn-primary">
+                                {t("#800guest02")}
+                            </Link>
+                            <Link href="/auth/signin" className="guest-teaser-btn">
+                                {t("#800guest03")}
+                            </Link>
+                        </div>
+                    </section>
+                ) : null}
             </div>
 
             {/* Mobile: icon only, top right */}

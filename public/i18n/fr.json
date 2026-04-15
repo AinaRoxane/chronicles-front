@@ -9,6 +9,18 @@
         {
             "component_id": "#100title01",
             "translation": "Accueil"
+        },
+        {
+            "component_id": "#100notice01",
+            "translation": "Vous êtes actuellement déconnecté. Veuillez vous connecter ou vous inscrire pour une meilleure expérience."
+        },
+        {
+            "component_id": "#100cta01",
+            "translation": "Connexion"
+        },
+        {
+            "component_id": "#100cta02",
+            "translation": "Inscription"
         }
     ],
     "explore_page": [
@@ -95,6 +107,18 @@
             "translation": "Compte"
         },
         {
+            "component_id": "#700guest01",
+            "translation": "Vous êtes déconnecté"
+        },
+        {
+            "component_id": "#700guest02",
+            "translation": "Connexion"
+        },
+        {
+            "component_id": "#700guest03",
+            "translation": "Inscription"
+        },
+        {
             "component_id": "#700item01",
             "translation": "Profil"
         },
@@ -123,6 +147,44 @@
         {
             "component_id": "#800aria02",
             "translation": "Ouvrir la recherche"
+        },
+        {
+            "component_id": "#800aria03",
+            "translation": "Actions rapides en mode déconnecté"
+        },
+        {
+            "component_id": "#800guest01",
+            "translation": "Continuez après connexion ou inscription"
+        },
+        {
+            "component_id": "#800guest02",
+            "translation": "Connexion"
+        },
+        {
+            "component_id": "#800guest03",
+            "translation": "Inscription"
+        }
+    ],
+    "guest_overlay": [
+        {
+            "component_id": "#950title01",
+            "translation": "Bienvenue sur Chronicles"
+        },
+        {
+            "component_id": "#950body01",
+            "translation": "Vous êtes actuellement déconnecté. Connectez-vous ou inscrivez-vous pour une meilleure expérience."
+        },
+        {
+            "component_id": "#950cta01",
+            "translation": "Connexion"
+        },
+        {
+            "component_id": "#950cta02",
+            "translation": "Inscription"
+        },
+        {
+            "component_id": "#950aria01",
+            "translation": "Fermer l'invite de connexion"
         }
     ],
     "mobile_topbar": [
