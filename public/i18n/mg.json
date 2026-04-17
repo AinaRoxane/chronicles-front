@@ -204,5 +204,211 @@
             "component_id": "#900aria04",
             "translation": "Sokafy ny fikarohana"
         }
+    ],
+    "auth_pages": [
+        {
+            "component_id": "#010label01",
+            "translation": "Famantarana"
+        },
+        {
+            "component_id": "#010help01",
+            "translation": "Ampidiro ny email na ny tag-n'ny kaontinao"
+        },
+        {
+            "component_id": "#010label02",
+            "translation": "Teny miafina"
+        },
+        {
+            "component_id": "#010help02",
+            "translation": "Ampidiro ilay teny miafina nofaritanao"
+        },
+        {
+            "component_id": "#010cta01",
+            "translation": "Hiditra"
+        },
+        {
+            "component_id": "#010status01",
+            "translation": "Eo am-pidirana..."
+        },
+        {
+            "component_id": "#010link01",
+            "translation": "Hamorona kaonty"
+        },
+        {
+            "component_id": "#010error01",
+            "translation": "Tsy tafiditra. Hamarino ny mombamomba anao."
+        },
+        {
+            "component_id": "#020title01",
+            "translation": "Mamorona kaonty"
+        },
+        {
+            "component_id": "#020body01",
+            "translation": "Dingana 1 amin'ny 2 : fampahafantarana fototra"
+        },
+        {
+            "component_id": "#020link01",
+            "translation": "Efa manana kaonty aho"
+        },
+        {
+            "component_id": "#020label01",
+            "translation": "Email"
+        },
+        {
+            "component_id": "#020label02",
+            "translation": "Username"
+        },
+        {
+            "component_id": "#020label03",
+            "translation": "Usertag"
+        },
+        {
+            "component_id": "#020label04",
+            "translation": "Teny miafina"
+        },
+        {
+            "component_id": "#020label05",
+            "translation": "Firenena"
+        },
+        {
+            "component_id": "#020label06",
+            "translation": "Anjara asa (safidy tokana)"
+        },
+        {
+            "component_id": "#020label07",
+            "translation": "Fiteny tiana"
+        },
+        {
+            "component_id": "#020role01",
+            "translation": "Admin"
+        },
+        {
+            "component_id": "#020role02",
+            "translation": "Mpanoratra"
+        },
+        {
+            "component_id": "#020role03",
+            "translation": "Mpamaky"
+        },
+        {
+            "component_id": "#020cta01",
+            "translation": "Manaraka"
+        },
+        {
+            "component_id": "#020status01",
+            "translation": "Hojerena ny fisian'ny email"
+        },
+        {
+            "component_id": "#020status02",
+            "translation": "Eo am-panamarinana..."
+        },
+        {
+            "component_id": "#020status03",
+            "translation": "Mbola malalaka ny email"
+        },
+        {
+            "component_id": "#020status04",
+            "translation": "Efa ampiasaina ny email"
+        },
+        {
+            "component_id": "#020status05",
+            "translation": "Tsy nahomby ny fanamarinana"
+        },
+        {
+            "component_id": "#020status06",
+            "translation": "Hojerena ny fisian'ny usertag"
+        },
+        {
+            "component_id": "#020status07",
+            "translation": "Efa ampiasaina ny usertag"
+        },
+        {
+            "component_id": "#020status08",
+            "translation": "Mbola malalaka ny usertag"
+        },
+        {
+            "component_id": "#020error01",
+            "translation": "Tsy afaka maka firenena, fiteny, anjara asa na lahy/vavy."
+        },
+        {
+            "component_id": "#030label01",
+            "translation": "Bio"
+        },
+        {
+            "component_id": "#030label02",
+            "translation": "Lahy/Vavy"
+        },
+        {
+            "component_id": "#030label03",
+            "translation": "Taona nahaterahana"
+        },
+        {
+            "component_id": "#030label04",
+            "translation": "Sary mombamomba"
+        },
+        {
+            "component_id": "#030placeholder01",
+            "translation": "Lazao fohifohy ny momba anao"
+        },
+        {
+            "component_id": "#030placeholder02",
+            "translation": "Tsy voatondro"
+        },
+        {
+            "component_id": "#030body01",
+            "translation": "Sintomy-apetraho eto ny sary na ampidiro avy amin'ny rakitra."
+        },
+        {
+            "component_id": "#030cta01",
+            "translation": "Ampidiro sary"
+        },
+        {
+            "component_id": "#030cta02",
+            "translation": "Hiverina"
+        },
+        {
+            "component_id": "#030cta03",
+            "translation": "Hitsambikina"
+        },
+        {
+            "component_id": "#030cta04",
+            "translation": "Hisoratra anarana"
+        },
+        {
+            "component_id": "#030aria01",
+            "translation": "Topi-maso avatar"
+        },
+        {
+            "component_id": "#030error01",
+            "translation": "Tsy mifanaraka ny fanamafisana teny miafina."
+        },
+        {
+            "component_id": "#030error02",
+            "translation": "Tsy nahomby ny fisoratana anarana. Hamarino ny mombamomba anao."
+        },
+        {
+            "component_id": "#040title01",
+            "translation": "Fanamafisana teny miafina"
+        },
+        {
+            "component_id": "#040body01",
+            "translation": "Ampidiro indray ny teny miafina hanamafisana ny fisoratana anarana."
+        },
+        {
+            "component_id": "#040label01",
+            "translation": "Hamarino ny teny miafina"
+        },
+        {
+            "component_id": "#040cta01",
+            "translation": "Ajanony"
+        },
+        {
+            "component_id": "#040cta02",
+            "translation": "Hamarino ary mamorona kaonty"
+        },
+        {
+            "component_id": "#040status01",
+            "translation": "Eo am-pamoronana kaonty..."
+        }
     ]
 }

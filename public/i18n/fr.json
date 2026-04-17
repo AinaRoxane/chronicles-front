@@ -204,5 +204,211 @@
             "component_id": "#900aria04",
             "translation": "Ouvrir la recherche"
         }
+    ],
+    "auth_pages": [
+        {
+            "component_id": "#010label01",
+            "translation": "Identifiant"
+        },
+        {
+            "component_id": "#010help01",
+            "translation": "Entrez votre email ou le tag de votre compte"
+        },
+        {
+            "component_id": "#010label02",
+            "translation": "Mot de passe"
+        },
+        {
+            "component_id": "#010help02",
+            "translation": "Entrez le mot de passe que vous avez défini"
+        },
+        {
+            "component_id": "#010cta01",
+            "translation": "Se connecter"
+        },
+        {
+            "component_id": "#010status01",
+            "translation": "Connexion..."
+        },
+        {
+            "component_id": "#010link01",
+            "translation": "Créer un compte"
+        },
+        {
+            "component_id": "#010error01",
+            "translation": "Connexion impossible. Vérifiez vos informations."
+        },
+        {
+            "component_id": "#020title01",
+            "translation": "Créer votre compte"
+        },
+        {
+            "component_id": "#020body01",
+            "translation": "Étape 1 sur 2 : informations principales"
+        },
+        {
+            "component_id": "#020link01",
+            "translation": "J'ai déjà un compte"
+        },
+        {
+            "component_id": "#020label01",
+            "translation": "Email"
+        },
+        {
+            "component_id": "#020label02",
+            "translation": "Username"
+        },
+        {
+            "component_id": "#020label03",
+            "translation": "Usertag"
+        },
+        {
+            "component_id": "#020label04",
+            "translation": "Mot de passe"
+        },
+        {
+            "component_id": "#020label05",
+            "translation": "Pays"
+        },
+        {
+            "component_id": "#020label06",
+            "translation": "Rôle (choix unique)"
+        },
+        {
+            "component_id": "#020label07",
+            "translation": "Langue préférée"
+        },
+        {
+            "component_id": "#020role01",
+            "translation": "Admin"
+        },
+        {
+            "component_id": "#020role02",
+            "translation": "Auteur"
+        },
+        {
+            "component_id": "#020role03",
+            "translation": "Lecteur"
+        },
+        {
+            "component_id": "#020cta01",
+            "translation": "Suivant"
+        },
+        {
+            "component_id": "#020status01",
+            "translation": "La disponibilité de l'email sera vérifiée"
+        },
+        {
+            "component_id": "#020status02",
+            "translation": "Vérification en cours..."
+        },
+        {
+            "component_id": "#020status03",
+            "translation": "Email disponible"
+        },
+        {
+            "component_id": "#020status04",
+            "translation": "Email déjà utilisé"
+        },
+        {
+            "component_id": "#020status05",
+            "translation": "Échec de la vérification"
+        },
+        {
+            "component_id": "#020status06",
+            "translation": "La disponibilité du usertag sera vérifiée"
+        },
+        {
+            "component_id": "#020status07",
+            "translation": "Usertag déjà utilisé"
+        },
+        {
+            "component_id": "#020status08",
+            "translation": "Usertag disponible"
+        },
+        {
+            "component_id": "#020error01",
+            "translation": "Impossible de charger les pays, langues, rôles ou genres."
+        },
+        {
+            "component_id": "#030label01",
+            "translation": "Bio"
+        },
+        {
+            "component_id": "#030label02",
+            "translation": "Genre"
+        },
+        {
+            "component_id": "#030label03",
+            "translation": "Année de naissance"
+        },
+        {
+            "component_id": "#030label04",
+            "translation": "Photo de profil"
+        },
+        {
+            "component_id": "#030placeholder01",
+            "translation": "Parlez un peu de vous"
+        },
+        {
+            "component_id": "#030placeholder02",
+            "translation": "Non renseigné"
+        },
+        {
+            "component_id": "#030body01",
+            "translation": "Glissez-déposez une image ici ou importez-la."
+        },
+        {
+            "component_id": "#030cta01",
+            "translation": "Importer une image"
+        },
+        {
+            "component_id": "#030cta02",
+            "translation": "Précédent"
+        },
+        {
+            "component_id": "#030cta03",
+            "translation": "Passer"
+        },
+        {
+            "component_id": "#030cta04",
+            "translation": "S'inscrire"
+        },
+        {
+            "component_id": "#030aria01",
+            "translation": "Aperçu de l'avatar"
+        },
+        {
+            "component_id": "#030error01",
+            "translation": "La confirmation du mot de passe ne correspond pas."
+        },
+        {
+            "component_id": "#030error02",
+            "translation": "Inscription impossible. Vérifiez vos informations."
+        },
+        {
+            "component_id": "#040title01",
+            "translation": "Confirmation du mot de passe"
+        },
+        {
+            "component_id": "#040body01",
+            "translation": "Entrez à nouveau votre mot de passe pour confirmer l'inscription."
+        },
+        {
+            "component_id": "#040label01",
+            "translation": "Confirmer le mot de passe"
+        },
+        {
+            "component_id": "#040cta01",
+            "translation": "Annuler"
+        },
+        {
+            "component_id": "#040cta02",
+            "translation": "Confirmer et créer le compte"
+        },
+        {
+            "component_id": "#040status01",
+            "translation": "Inscription..."
+        }
     ]
 }

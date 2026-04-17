@@ -204,5 +204,211 @@
             "component_id": "#900aria04",
             "translation": "Open search"
         }
+    ],
+    "auth_pages": [
+        {
+            "component_id": "#010label01",
+            "translation": "Identifier"
+        },
+        {
+            "component_id": "#010help01",
+            "translation": "Enter your email or your account tag"
+        },
+        {
+            "component_id": "#010label02",
+            "translation": "Password"
+        },
+        {
+            "component_id": "#010help02",
+            "translation": "Enter the password you set"
+        },
+        {
+            "component_id": "#010cta01",
+            "translation": "Login"
+        },
+        {
+            "component_id": "#010status01",
+            "translation": "Logging in..."
+        },
+        {
+            "component_id": "#010link01",
+            "translation": "Create an account"
+        },
+        {
+            "component_id": "#010error01",
+            "translation": "Login failed. Please check your credentials."
+        },
+        {
+            "component_id": "#020title01",
+            "translation": "Create your account"
+        },
+        {
+            "component_id": "#020body01",
+            "translation": "Step 1 of 2: main information"
+        },
+        {
+            "component_id": "#020link01",
+            "translation": "I already have an account"
+        },
+        {
+            "component_id": "#020label01",
+            "translation": "Email"
+        },
+        {
+            "component_id": "#020label02",
+            "translation": "Username"
+        },
+        {
+            "component_id": "#020label03",
+            "translation": "Usertag"
+        },
+        {
+            "component_id": "#020label04",
+            "translation": "Password"
+        },
+        {
+            "component_id": "#020label05",
+            "translation": "Country"
+        },
+        {
+            "component_id": "#020label06",
+            "translation": "Role (single choice)"
+        },
+        {
+            "component_id": "#020label07",
+            "translation": "Preferred language"
+        },
+        {
+            "component_id": "#020role01",
+            "translation": "Admin"
+        },
+        {
+            "component_id": "#020role02",
+            "translation": "Author"
+        },
+        {
+            "component_id": "#020role03",
+            "translation": "Reader"
+        },
+        {
+            "component_id": "#020cta01",
+            "translation": "Next"
+        },
+        {
+            "component_id": "#020status01",
+            "translation": "Email availability will be checked"
+        },
+        {
+            "component_id": "#020status02",
+            "translation": "Checking availability..."
+        },
+        {
+            "component_id": "#020status03",
+            "translation": "Email is available"
+        },
+        {
+            "component_id": "#020status04",
+            "translation": "Email is already used"
+        },
+        {
+            "component_id": "#020status05",
+            "translation": "Availability check failed"
+        },
+        {
+            "component_id": "#020status06",
+            "translation": "Usertag availability will be checked"
+        },
+        {
+            "component_id": "#020status07",
+            "translation": "Usertag is already used"
+        },
+        {
+            "component_id": "#020status08",
+            "translation": "Usertag is available"
+        },
+        {
+            "component_id": "#020error01",
+            "translation": "Unable to load countries, languages, roles, or genders."
+        },
+        {
+            "component_id": "#030label01",
+            "translation": "Bio"
+        },
+        {
+            "component_id": "#030label02",
+            "translation": "Gender"
+        },
+        {
+            "component_id": "#030label03",
+            "translation": "Birth year"
+        },
+        {
+            "component_id": "#030label04",
+            "translation": "Profile picture"
+        },
+        {
+            "component_id": "#030placeholder01",
+            "translation": "Tell us a bit about yourself"
+        },
+        {
+            "component_id": "#030placeholder02",
+            "translation": "Not specified"
+        },
+        {
+            "component_id": "#030body01",
+            "translation": "Drag and drop an image here or import it."
+        },
+        {
+            "component_id": "#030cta01",
+            "translation": "Import image"
+        },
+        {
+            "component_id": "#030cta02",
+            "translation": "Previous"
+        },
+        {
+            "component_id": "#030cta03",
+            "translation": "Skip"
+        },
+        {
+            "component_id": "#030cta04",
+            "translation": "Sign up"
+        },
+        {
+            "component_id": "#030aria01",
+            "translation": "Avatar preview"
+        },
+        {
+            "component_id": "#030error01",
+            "translation": "Password confirmation does not match."
+        },
+        {
+            "component_id": "#030error02",
+            "translation": "Signup failed. Please verify your information."
+        },
+        {
+            "component_id": "#040title01",
+            "translation": "Password confirmation"
+        },
+        {
+            "component_id": "#040body01",
+            "translation": "Enter your password again to confirm registration."
+        },
+        {
+            "component_id": "#040label01",
+            "translation": "Confirm password"
+        },
+        {
+            "component_id": "#040cta01",
+            "translation": "Cancel"
+        },
+        {
+            "component_id": "#040cta02",
+            "translation": "Confirm and create account"
+        },
+        {
+            "component_id": "#040status01",
+            "translation": "Creating account..."
+        }
     ]
 }
