@@ -175,247 +175,307 @@
     "guest_overlay": [
         {
             "component_id": "#950title01",
+            "key": "Welcome to Chronicles",
             "translation": "Bienvenue sur Chronicles"
         },
         {
             "component_id": "#950body01",
+            "key": "You are currently logged out. Login or sign in to unlock a better experience.",
             "translation": "Vous êtes actuellement déconnecté. Connectez-vous ou inscrivez-vous pour une meilleure expérience."
         },
         {
             "component_id": "#950cta01",
+            "key": "Login",
             "translation": "Connexion"
         },
         {
             "component_id": "#950cta02",
+            "key": "Sign in",
             "translation": "Inscription"
         },
         {
             "component_id": "#950aria01",
+            "key": "Close login prompt",
             "translation": "Fermer l'invite de connexion"
         }
     ],
     "mobile_topbar": [
         {
             "component_id": "#900aria01",
+            "key": "Open navigation menu",
             "translation": "Ouvrir le menu de navigation"
         },
         {
             "component_id": "#900aria02",
+            "key": "Close sidebar overlay",
             "translation": "Fermer la superposition latérale"
         },
         {
             "component_id": "#900aria03",
+            "key": "Mobile navigation sidebar",
             "translation": "Barre latérale de navigation mobile"
         },
         {
             "component_id": "#900aria04",
+            "key": "Open search",
             "translation": "Ouvrir la recherche"
         }
     ],
     "auth_pages": [
         {
             "component_id": "#010label01",
-            "translation": "Identifiant"
+            "translation": "Identifiant",
+            "key": "Identifier"
         },
         {
             "component_id": "#010help01",
-            "translation": "Entrez votre email ou le tag de votre compte"
+            "translation": "Entrez votre email ou le tag de votre compte",
+            "key": "Enter your email or your account tag"
         },
         {
             "component_id": "#010label02",
-            "translation": "Mot de passe"
+            "translation": "Mot de passe",
+            "key": "Login password label"
         },
         {
             "component_id": "#010help02",
-            "translation": "Entrez le mot de passe que vous avez défini"
+            "translation": "Entrez le mot de passe que vous avez défini",
+            "key": "Enter the password you set"
         },
         {
             "component_id": "#010cta01",
-            "translation": "Se connecter"
+            "translation": "Se connecter",
+            "key": "Login"
         },
         {
             "component_id": "#010status01",
-            "translation": "Connexion..."
+            "translation": "Connexion...",
+            "key": "Logging in..."
         },
         {
             "component_id": "#010link01",
-            "translation": "Créer un compte"
+            "translation": "Créer un compte",
+            "key": "Create an account"
         },
         {
             "component_id": "#010error01",
-            "translation": "Connexion impossible. Vérifiez vos informations."
+            "translation": "Connexion impossible. Vérifiez vos informations.",
+            "key": "Login failed. Please check your credentials."
         },
         {
             "component_id": "#020title01",
-            "translation": "Créer votre compte"
+            "translation": "Créer votre compte",
+            "key": "Create your account"
         },
         {
             "component_id": "#020body01",
-            "translation": "Étape 1 sur 2 : informations principales"
+            "translation": "Étape 1 sur 2 : informations principales",
+            "key": "Step 1 of 2: main information"
         },
         {
             "component_id": "#020link01",
-            "translation": "J'ai déjà un compte"
+            "translation": "J'ai déjà un compte",
+            "key": "I already have an account"
         },
         {
             "component_id": "#020label01",
-            "translation": "Email"
+            "translation": "Email",
+            "key": "Email"
         },
         {
             "component_id": "#020label02",
-            "translation": "Username"
+            "translation": "Username",
+            "key": "Username"
         },
         {
             "component_id": "#020label03",
-            "translation": "Usertag"
+            "translation": "Usertag",
+            "key": "Usertag"
         },
         {
             "component_id": "#020label04",
-            "translation": "Mot de passe"
+            "translation": "Mot de passe",
+            "key": "Signup password label"
         },
         {
             "component_id": "#020label05",
-            "translation": "Pays"
+            "translation": "Pays",
+            "key": "Country"
         },
         {
             "component_id": "#020label06",
-            "translation": "Rôle (choix unique)"
+            "translation": "Rôle (choix unique)",
+            "key": "Role (single choice)"
         },
         {
             "component_id": "#020label07",
-            "translation": "Langue préférée"
+            "translation": "Langue préférée",
+            "key": "Preferred language"
         },
         {
             "component_id": "#020role01",
-            "translation": "Admin"
+            "translation": "Admin",
+            "key": "Admin"
         },
         {
             "component_id": "#020role02",
-            "translation": "Auteur"
+            "translation": "Auteur",
+            "key": "Author"
         },
         {
             "component_id": "#020role03",
-            "translation": "Lecteur"
+            "translation": "Lecteur",
+            "key": "Reader"
         },
         {
             "component_id": "#020cta01",
-            "translation": "Suivant"
+            "translation": "Suivant",
+            "key": "Next"
         },
         {
             "component_id": "#020status01",
-            "translation": "La disponibilité de l'email sera vérifiée"
+            "translation": "La disponibilité de l'email sera vérifiée",
+            "key": "Email availability will be checked"
         },
         {
             "component_id": "#020status02",
-            "translation": "Vérification en cours..."
+            "translation": "Vérification en cours...",
+            "key": "Checking availability..."
         },
         {
             "component_id": "#020status03",
-            "translation": "Email disponible"
+            "translation": "Email disponible",
+            "key": "Email is available"
         },
         {
             "component_id": "#020status04",
-            "translation": "Email déjà utilisé"
+            "translation": "Email déjà utilisé",
+            "key": "Email is already used"
         },
         {
             "component_id": "#020status05",
-            "translation": "Échec de la vérification"
+            "translation": "Échec de la vérification",
+            "key": "Availability check failed"
         },
         {
             "component_id": "#020status06",
-            "translation": "La disponibilité du usertag sera vérifiée"
+            "translation": "La disponibilité du usertag sera vérifiée",
+            "key": "Usertag availability will be checked"
         },
         {
             "component_id": "#020status07",
-            "translation": "Usertag déjà utilisé"
+            "translation": "Usertag déjà utilisé",
+            "key": "Usertag is already used"
         },
         {
             "component_id": "#020status08",
-            "translation": "Usertag disponible"
+            "translation": "Usertag disponible",
+            "key": "Usertag is available"
         },
         {
             "component_id": "#020error01",
-            "translation": "Impossible de charger les pays, langues, rôles ou genres."
+            "translation": "Impossible de charger les pays, langues, rôles ou genres.",
+            "key": "Unable to load countries, languages, roles, or genders."
         },
         {
             "component_id": "#030label01",
-            "translation": "Bio"
+            "translation": "Bio",
+            "key": "Bio"
         },
         {
             "component_id": "#030label02",
-            "translation": "Genre"
+            "translation": "Genre",
+            "key": "Gender"
         },
         {
             "component_id": "#030label03",
-            "translation": "Année de naissance"
+            "translation": "Année de naissance",
+            "key": "Birth year"
         },
         {
             "component_id": "#030label04",
-            "translation": "Photo de profil"
+            "translation": "Photo de profil",
+            "key": "Profile picture"
         },
         {
             "component_id": "#030placeholder01",
-            "translation": "Parlez un peu de vous"
+            "translation": "Parlez un peu de vous",
+            "key": "Tell us a bit about yourself"
         },
         {
             "component_id": "#030placeholder02",
-            "translation": "Non renseigné"
+            "translation": "Non renseigné",
+            "key": "Not specified"
         },
         {
             "component_id": "#030body01",
-            "translation": "Glissez-déposez une image ici ou importez-la."
+            "translation": "Glissez-déposez une image ici ou importez-la.",
+            "key": "Drag and drop an image here or import it."
         },
         {
             "component_id": "#030cta01",
-            "translation": "Importer une image"
+            "translation": "Importer une image",
+            "key": "Import image"
         },
         {
             "component_id": "#030cta02",
-            "translation": "Précédent"
+            "translation": "Précédent",
+            "key": "Previous"
         },
         {
             "component_id": "#030cta03",
-            "translation": "Passer"
+            "translation": "Passer",
+            "key": "Skip"
         },
         {
             "component_id": "#030cta04",
-            "translation": "S'inscrire"
+            "translation": "S'inscrire",
+            "key": "Sign up"
         },
         {
             "component_id": "#030aria01",
-            "translation": "Aperçu de l'avatar"
+            "translation": "Aperçu de l'avatar",
+            "key": "Avatar preview"
         },
         {
             "component_id": "#030error01",
-            "translation": "La confirmation du mot de passe ne correspond pas."
+            "translation": "La confirmation du mot de passe ne correspond pas.",
+            "key": "Password confirmation does not match."
         },
         {
             "component_id": "#030error02",
-            "translation": "Inscription impossible. Vérifiez vos informations."
+            "translation": "Inscription impossible. Vérifiez vos informations.",
+            "key": "Signup failed. Please verify your information."
         },
         {
             "component_id": "#040title01",
-            "translation": "Confirmation du mot de passe"
+            "translation": "Confirmation du mot de passe",
+            "key": "Password confirmation"
         },
         {
             "component_id": "#040body01",
-            "translation": "Entrez à nouveau votre mot de passe pour confirmer l'inscription."
+            "translation": "Entrez à nouveau votre mot de passe pour confirmer l'inscription.",
+            "key": "Enter your password again to confirm registration."
         },
         {
             "component_id": "#040label01",
-            "translation": "Confirmer le mot de passe"
+            "translation": "Confirmer le mot de passe",
+            "key": "Confirm password"
         },
         {
             "component_id": "#040cta01",
-            "translation": "Annuler"
+            "translation": "Annuler",
+            "key": "Cancel"
         },
         {
             "component_id": "#040cta02",
-            "translation": "Confirmer et créer le compte"
+            "translation": "Confirmer et créer le compte",
+            "key": "Confirm and create account"
         },
         {
             "component_id": "#040status01",
-            "translation": "Inscription..."
+            "translation": "Inscription...",
+            "key": "Creating account..."
         }
     ]
 }

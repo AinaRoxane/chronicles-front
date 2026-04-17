@@ -110,7 +110,7 @@ export default function SigninPage() {
                 }
             })
             .catch(() => {
-                setErrorMessage(t("#020error01"));
+                setErrorMessage(t("Unable to load countries, languages, roles, or genders."));
             })
             .finally(() => {
                 setLoadingLists(false);
@@ -199,17 +199,17 @@ export default function SigninPage() {
         event.preventDefault();
 
         if (confirmPassword !== password) {
-            setErrorMessage(t("#030error01"));
+            setErrorMessage(t("Password confirmation does not match."));
             return;
         }
 
         if (emailStatus === "taken") {
-            setErrorMessage(t("#020status04"));
+            setErrorMessage(t("Email is already used"));
             return;
         }
 
         if (usertagStatus === "taken") {
-            setErrorMessage(t("#020status07"));
+            setErrorMessage(t("Usertag is already used"));
             return;
         }
 
@@ -241,7 +241,7 @@ export default function SigninPage() {
 
             router.push("/home");
         } catch {
-            setErrorMessage(t("#030error02"));
+            setErrorMessage(t("Signup failed. Please verify your information."));
         } finally {
             setSubmitting(false);
         }
@@ -249,15 +249,15 @@ export default function SigninPage() {
 
     function resolveRoleLabel(code: string): string {
         if (code === "MDG_ADMIN") {
-            return t("#020role01");
+            return t("Admin");
         }
 
         if (code === "AUTHOR" || code === "MDG_AUTHOR") {
-            return t("#020role02");
+            return t("Author");
         }
 
         if (code === "READER" || code === "MDG_USER") {
-            return t("#020role03");
+            return t("Reader");
         }
 
         return code;
@@ -284,10 +284,10 @@ export default function SigninPage() {
                 <div className="row g-0">
                     <div className={`col-md-6 ${styles.splitPanel} shell-divider-right p-2`}>
                         <div className="p-2">
-                            <p className="mb-1 fw-semibold">{t("#020title01")}</p>
-                            <p className={styles.formSubLabel}>{t("#020body01")}</p>
+                            <p className="mb-1 fw-semibold">{t("Create your account")}</p>
+                            <p className={styles.formSubLabel}>{t("Step 1 of 2: main information")}</p>
                             <Link href="/auth/login" className={styles.linkText}>
-                                {t("#020link01")}
+                                {t("I already have an account")}
                             </Link>
                         </div>
                     </div>
@@ -296,23 +296,23 @@ export default function SigninPage() {
                         <TextInput
                             id="signin-email"
                             type="email"
-                            label={t("#020label01")}
+                            label={t("Email")}
                             value={email}
                             onChange={setEmail}
                             required
                         />
                         <AvailabilityIndicator
                             status={emailStatus}
-                            idleText={t("#020status01")}
-                            checkingText={t("#020status02")}
-                            availableText={t("#020status03")}
-                            takenText={t("#020status04")}
-                            errorText={t("#020status05")}
+                            idleText={t("Email availability will be checked")}
+                            checkingText={t("Checking availability...")}
+                            availableText={t("Email is available")}
+                            takenText={t("Email is already used")}
+                            errorText={t("Availability check failed")}
                         />
 
                         <TextInput
                             id="signin-username"
-                            label={t("#020label02")}
+                            label={t("Username")}
                             value={username}
                             onChange={setUsername}
                             required
@@ -320,23 +320,23 @@ export default function SigninPage() {
 
                         <TextInput
                             id="signin-usertag"
-                            label={t("#020label03")}
+                            label={t("Usertag")}
                             value={usertag}
                             onChange={setUsertag}
                             required
                         />
                         <AvailabilityIndicator
                             status={usertagStatus}
-                            idleText={t("#020status06")}
-                            checkingText={t("#020status02")}
-                            availableText={t("#020status08")}
-                            takenText={t("#020status07")}
-                            errorText={t("#020status05")}
+                            idleText={t("Usertag availability will be checked")}
+                            checkingText={t("Checking availability...")}
+                            availableText={t("Usertag is available")}
+                            takenText={t("Usertag is already used")}
+                            errorText={t("Availability check failed")}
                         />
 
                         <PasswordInput
                             id="signin-password"
-                            label={t("#020label04")}
+                            label={t("Signup password label")}
                             value={password}
                             onChange={setPassword}
                             required
@@ -344,7 +344,7 @@ export default function SigninPage() {
 
                         <SelectInput
                             id="signin-country"
-                            label={t("#020label05")}
+                            label={t("Country")}
                             value={countryIsoCode}
                             onChange={setCountryIsoCode}
                             options={countryOptions}
@@ -353,7 +353,7 @@ export default function SigninPage() {
                         />
 
                         <div className="mb-2">
-                            <label className={styles.formLabel}>{t("#020label06")}</label>
+                            <label className={styles.formLabel}>{t("Role (single choice)")}</label>
                             <div className="d-grid gap-2">
                                 {roles.map((role) => (
                                     <label key={role.code} className={`${styles.roleChoice} d-flex align-items-center gap-2`}>
@@ -374,7 +374,7 @@ export default function SigninPage() {
 
                         <SelectInput
                             id="signin-language"
-                            label={t("#020label07")}
+                            label={t("Preferred language")}
                             value={userPreferedLanguageCode}
                             onChange={setUserPreferedLanguageCode}
                             options={languageOptions}
@@ -388,7 +388,7 @@ export default function SigninPage() {
                             disabled={!isStep1Valid || loadingLists || emailStatus === "taken" || usertagStatus === "taken"}
                             onClick={() => setStep(2)}
                         >
-                            {t("#020cta01")}
+                            {t("Next")}
                         </button>
                     </div>
                 </div>
@@ -397,25 +397,25 @@ export default function SigninPage() {
                     <div className={`col-md-6 ${styles.splitPanel} shell-divider-right p-3`}>
                         <TextAreaInput
                             id="signin-bio"
-                            label={t("#030label01")}
+                            label={t("Bio")}
                             value={bio}
                             onChange={setBio}
-                            placeholder={t("#030placeholder01")}
+                            placeholder={t("Tell us a bit about yourself")}
                         />
 
                         <SelectInput
                             id="signin-gender"
-                            label={t("#030label02")}
+                            label={t("Gender")}
                             value={gender}
                             onChange={setGender}
                             options={genderOptions}
-                            placeholder={t("#030placeholder02")}
+                            placeholder={t("Not specified")}
                         />
 
                         <TextInput
                             id="signin-birthyear"
                             type="number"
-                            label={t("#030label03")}
+                            label={t("Birth year")}
                             value={birthYear}
                             onChange={setBirthYear}
                             min={1900}
@@ -425,10 +425,10 @@ export default function SigninPage() {
 
                     <div className="col-md-6 p-3">
                         <AvatarUploadBox
-                            label={t("#030label04")}
-                            emptyText={t("#030body01")}
-                            buttonText={t("#030cta01")}
-                            previewAlt={t("#030aria01")}
+                            label={t("Profile picture")}
+                            emptyText={t("Drag and drop an image here or import it.")}
+                            buttonText={t("Import image")}
+                            previewAlt={t("Avatar preview")}
                             avatarUrl={avatarUrl}
                             avatarName={avatarName}
                             onAvatarChange={({ avatarUrl: nextAvatarUrl, avatarName: nextAvatarName }) => {
@@ -440,26 +440,26 @@ export default function SigninPage() {
 
                     <div className="col-12 d-flex gap-2 justify-content-end p-3 shell-divider-top">
                         <button type="button" className={styles.secondaryBtn} onClick={() => setStep(1)}>
-                            {t("#030cta02")}
+                            {t("Previous")}
                         </button>
                         <button type="button" className={styles.secondaryBtn} onClick={() => openConfirmModal(true)}>
-                            {t("#030cta03")}
+                            {t("Skip")}
                         </button>
                         <button type="button" className={styles.primaryBtn} onClick={() => openConfirmModal(false)}>
-                            {t("#030cta04")}
+                            {t("Sign up")}
                         </button>
                     </div>
                 </div>
             )}
             <PasswordConfirmModal
                 open={confirmPasswordOpen}
-                title={t("#040title01")}
-                body={t("#040body01")}
+                title={t("Password confirmation")}
+                body={t("Enter your password again to confirm registration.")}
                 confirmPassword={confirmPassword}
-                confirmLabel={t("#040label01")}
-                cancelText={t("#040cta01")}
-                submitText={t("#040cta02")}
-                submittingText={t("#040status01")}
+                confirmLabel={t("Confirm password")}
+                cancelText={t("Cancel")}
+                submitText={t("Confirm and create account")}
+                submittingText={t("Creating account...")}
                 submitting={submitting}
                 errorMessage={errorMessage}
                 onConfirmPasswordChange={setConfirmPassword}

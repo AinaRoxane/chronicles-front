@@ -39,7 +39,7 @@ export default function LoginPage() {
 
             router.push("/home");
         } catch {
-            setErrorMessage(t("#010error01"));
+            setErrorMessage(t("Login failed. Please check your credentials."));
         } finally {
             setSubmitting(false);
         }
@@ -50,8 +50,8 @@ export default function LoginPage() {
             <form className={styles.sectionPad} onSubmit={onSubmit}>
                 <TextInput
                     id="login-identifier"
-                    label={t("#010label01")}
-                    subLabel={t("#010help01")}
+                    label={t("Identifier")}
+                    subLabel={t("Enter your email or your account tag")}
                     value={identifier}
                     onChange={setIdentifier}
                     autoComplete="username"
@@ -60,8 +60,8 @@ export default function LoginPage() {
 
                 <PasswordInput
                     id="login-password"
-                    label={t("#010label02")}
-                    subLabel={t("#010help02")}
+                    label={t("Login password label")}
+                    subLabel={t("Enter the password you set")}
                     value={password}
                     onChange={setPassword}
                     autoComplete="current-password"
@@ -73,7 +73,7 @@ export default function LoginPage() {
                 <div className="row mb-3">
                     <div className="col-12">
                         <button type="submit" className={styles.primaryBtn} disabled={submitting}>
-                            {submitting ? t("#010status01") : t("#010cta01")}
+                            {submitting ? t("Logging in...") : t("Login")}
                         </button>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ export default function LoginPage() {
                 <div className="row">
                     <div className="col-12">
                         <Link href="/auth/signin" className={styles.linkText}>
-                            {t("#010link01")}
+                            {t("Create an account")}
                         </Link>
                     </div>
                 </div>

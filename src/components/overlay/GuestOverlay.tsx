@@ -18,19 +18,19 @@ export default function GuestOverlay() {
                 <button
                     type="button"
                     className="guest-overlay-close"
-                    aria-label={t("#950aria01")}
+                    aria-label={t("Close login prompt")}
                     onClick={dismissOverlay}
                 >
                     x
                 </button>
-                <h2 id="guest-overlay-title" className="h5 mb-2">{t("#950title01")}</h2>
-                <p className="text-secondary mb-3">{t("#950body01")}</p>
+                <h2 id="guest-overlay-title" className="h5 mb-2">{t("Welcome to Chronicles")}</h2>
+                <p className="text-secondary mb-3">{t("You are currently logged out. Login or sign in to unlock a better experience.")}</p>
                 <div className="d-flex flex-wrap gap-2">
                     <Link href="/auth/login" className="guest-overlay-btn guest-overlay-btn-primary" onClick={dismissOverlay}>
-                        {t("#950cta01")}
+                        {t("Login")}
                     </Link>
                     <Link href="/auth/signin" className="guest-overlay-btn" onClick={dismissOverlay}>
-                        {t("#950cta02")}
+                        {t("Sign in")}
                     </Link>
                 </div>
             </section>

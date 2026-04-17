@@ -175,247 +175,307 @@
     "guest_overlay": [
         {
             "component_id": "#950title01",
+            "key": "Welcome to Chronicles",
             "translation": "Welcome to Chronicles"
         },
         {
             "component_id": "#950body01",
+            "key": "You are currently logged out. Login or sign in to unlock a better experience.",
             "translation": "You are currently logged out. Login or sign in to unlock a better experience."
         },
         {
             "component_id": "#950cta01",
+            "key": "Login",
             "translation": "Login"
         },
         {
             "component_id": "#950cta02",
+            "key": "Sign in",
             "translation": "Sign in"
         },
         {
             "component_id": "#950aria01",
+            "key": "Close login prompt",
             "translation": "Close login prompt"
         }
     ],
     "mobile_topbar": [
         {
             "component_id": "#900aria01",
+            "key": "Open navigation menu",
             "translation": "Open navigation menu"
         },
         {
             "component_id": "#900aria02",
+            "key": "Close sidebar overlay",
             "translation": "Close sidebar overlay"
         },
         {
             "component_id": "#900aria03",
+            "key": "Mobile navigation sidebar",
             "translation": "Mobile navigation sidebar"
         },
         {
             "component_id": "#900aria04",
+            "key": "Open search",
             "translation": "Open search"
         }
     ],
     "auth_pages": [
         {
             "component_id": "#010label01",
-            "translation": "Identifier"
+            "translation": "Identifier",
+            "key": "Identifier"
         },
         {
             "component_id": "#010help01",
-            "translation": "Enter your email or your account tag"
+            "translation": "Enter your email or your account tag",
+            "key": "Enter your email or your account tag"
         },
         {
             "component_id": "#010label02",
-            "translation": "Password"
+            "translation": "Password",
+            "key": "Login password label"
         },
         {
             "component_id": "#010help02",
-            "translation": "Enter the password you set"
+            "translation": "Enter the password you set",
+            "key": "Enter the password you set"
         },
         {
             "component_id": "#010cta01",
-            "translation": "Login"
+            "translation": "Login",
+            "key": "Login"
         },
         {
             "component_id": "#010status01",
-            "translation": "Logging in..."
+            "translation": "Logging in...",
+            "key": "Logging in..."
         },
         {
             "component_id": "#010link01",
-            "translation": "Create an account"
+            "translation": "Create an account",
+            "key": "Create an account"
         },
         {
             "component_id": "#010error01",
-            "translation": "Login failed. Please check your credentials."
+            "translation": "Login failed. Please check your credentials.",
+            "key": "Login failed. Please check your credentials."
         },
         {
             "component_id": "#020title01",
-            "translation": "Create your account"
+            "translation": "Create your account",
+            "key": "Create your account"
         },
         {
             "component_id": "#020body01",
-            "translation": "Step 1 of 2: main information"
+            "translation": "Step 1 of 2: main information",
+            "key": "Step 1 of 2: main information"
         },
         {
             "component_id": "#020link01",
-            "translation": "I already have an account"
+            "translation": "I already have an account",
+            "key": "I already have an account"
         },
         {
             "component_id": "#020label01",
-            "translation": "Email"
+            "translation": "Email",
+            "key": "Email"
         },
         {
             "component_id": "#020label02",
-            "translation": "Username"
+            "translation": "Username",
+            "key": "Username"
         },
         {
             "component_id": "#020label03",
-            "translation": "Usertag"
+            "translation": "Usertag",
+            "key": "Usertag"
         },
         {
             "component_id": "#020label04",
-            "translation": "Password"
+            "translation": "Password",
+            "key": "Signup password label"
         },
         {
             "component_id": "#020label05",
-            "translation": "Country"
+            "translation": "Country",
+            "key": "Country"
         },
         {
             "component_id": "#020label06",
-            "translation": "Role (single choice)"
+            "translation": "Role (single choice)",
+            "key": "Role (single choice)"
         },
         {
             "component_id": "#020label07",
-            "translation": "Preferred language"
+            "translation": "Preferred language",
+            "key": "Preferred language"
         },
         {
             "component_id": "#020role01",
-            "translation": "Admin"
+            "translation": "Admin",
+            "key": "Admin"
         },
         {
             "component_id": "#020role02",
-            "translation": "Author"
+            "translation": "Author",
+            "key": "Author"
         },
         {
             "component_id": "#020role03",
-            "translation": "Reader"
+            "translation": "Reader",
+            "key": "Reader"
         },
         {
             "component_id": "#020cta01",
-            "translation": "Next"
+            "translation": "Next",
+            "key": "Next"
         },
         {
             "component_id": "#020status01",
-            "translation": "Email availability will be checked"
+            "translation": "Email availability will be checked",
+            "key": "Email availability will be checked"
         },
         {
             "component_id": "#020status02",
-            "translation": "Checking availability..."
+            "translation": "Checking availability...",
+            "key": "Checking availability..."
         },
         {
             "component_id": "#020status03",
-            "translation": "Email is available"
+            "translation": "Email is available",
+            "key": "Email is available"
         },
         {
             "component_id": "#020status04",
-            "translation": "Email is already used"
+            "translation": "Email is already used",
+            "key": "Email is already used"
         },
         {
             "component_id": "#020status05",
-            "translation": "Availability check failed"
+            "translation": "Availability check failed",
+            "key": "Availability check failed"
         },
         {
             "component_id": "#020status06",
-            "translation": "Usertag availability will be checked"
+            "translation": "Usertag availability will be checked",
+            "key": "Usertag availability will be checked"
         },
         {
             "component_id": "#020status07",
-            "translation": "Usertag is already used"
+            "translation": "Usertag is already used",
+            "key": "Usertag is already used"
         },
         {
             "component_id": "#020status08",
-            "translation": "Usertag is available"
+            "translation": "Usertag is available",
+            "key": "Usertag is available"
         },
         {
             "component_id": "#020error01",
-            "translation": "Unable to load countries, languages, roles, or genders."
+            "translation": "Unable to load countries, languages, roles, or genders.",
+            "key": "Unable to load countries, languages, roles, or genders."
         },
         {
             "component_id": "#030label01",
-            "translation": "Bio"
+            "translation": "Bio",
+            "key": "Bio"
         },
         {
             "component_id": "#030label02",
-            "translation": "Gender"
+            "translation": "Gender",
+            "key": "Gender"
         },
         {
             "component_id": "#030label03",
-            "translation": "Birth year"
+            "translation": "Birth year",
+            "key": "Birth year"
         },
         {
             "component_id": "#030label04",
-            "translation": "Profile picture"
+            "translation": "Profile picture",
+            "key": "Profile picture"
         },
         {
             "component_id": "#030placeholder01",
-            "translation": "Tell us a bit about yourself"
+            "translation": "Tell us a bit about yourself",
+            "key": "Tell us a bit about yourself"
         },
         {
             "component_id": "#030placeholder02",
-            "translation": "Not specified"
+            "translation": "Not specified",
+            "key": "Not specified"
         },
         {
             "component_id": "#030body01",
-            "translation": "Drag and drop an image here or import it."
+            "translation": "Drag and drop an image here or import it.",
+            "key": "Drag and drop an image here or import it."
         },
         {
             "component_id": "#030cta01",
-            "translation": "Import image"
+            "translation": "Import image",
+            "key": "Import image"
         },
         {
             "component_id": "#030cta02",
-            "translation": "Previous"
+            "translation": "Previous",
+            "key": "Previous"
         },
         {
             "component_id": "#030cta03",
-            "translation": "Skip"
+            "translation": "Skip",
+            "key": "Skip"
         },
         {
             "component_id": "#030cta04",
-            "translation": "Sign up"
+            "translation": "Sign up",
+            "key": "Sign up"
         },
         {
             "component_id": "#030aria01",
-            "translation": "Avatar preview"
+            "translation": "Avatar preview",
+            "key": "Avatar preview"
         },
         {
             "component_id": "#030error01",
-            "translation": "Password confirmation does not match."
+            "translation": "Password confirmation does not match.",
+            "key": "Password confirmation does not match."
         },
         {
             "component_id": "#030error02",
-            "translation": "Signup failed. Please verify your information."
+            "translation": "Signup failed. Please verify your information.",
+            "key": "Signup failed. Please verify your information."
         },
         {
             "component_id": "#040title01",
-            "translation": "Password confirmation"
+            "translation": "Password confirmation",
+            "key": "Password confirmation"
         },
         {
             "component_id": "#040body01",
-            "translation": "Enter your password again to confirm registration."
+            "translation": "Enter your password again to confirm registration.",
+            "key": "Enter your password again to confirm registration."
         },
         {
             "component_id": "#040label01",
-            "translation": "Confirm password"
+            "translation": "Confirm password",
+            "key": "Confirm password"
         },
         {
             "component_id": "#040cta01",
-            "translation": "Cancel"
+            "translation": "Cancel",
+            "key": "Cancel"
         },
         {
             "component_id": "#040cta02",
-            "translation": "Confirm and create account"
+            "translation": "Confirm and create account",
+            "key": "Confirm and create account"
         },
         {
             "component_id": "#040status01",
-            "translation": "Creating account..."
+            "translation": "Creating account...",
+            "key": "Creating account..."
         }
     ]
 }

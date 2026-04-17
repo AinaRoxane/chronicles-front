@@ -22,7 +22,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                         className="position-fixed top-0 start-0 w-100 h-100"
                         style={{ background: "rgba(0,0,0,0.35)", zIndex: 1040 }}
                         onClick={() => setSidebarOpen(false)}
-                        aria-label={t("#900aria02")}
+                        aria-label={t("Close sidebar overlay")}
                     />
                     <div
                         className="position-fixed top-0 start-0 h-100 bg-white shadow"
@@ -33,7 +33,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                             transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
                             transition: "transform 0.3s cubic-bezier(.4,0,.2,1)",
                         }}
-                        aria-label={t("#900aria03")}
+                        aria-label={t("Mobile navigation sidebar")}
                     >
                         <LeftSidebar isCollapsed={false} />
                     </div>
@@ -45,7 +45,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                         <button
                             type="button"
                             className="bg-transparent border-0 p-0"
-                            aria-label={t("#900aria01")}
+                            aria-label={t("Open navigation menu")}
                             onClick={() => setSidebarOpen(true)}
                         >
                             <p className="brand-logo brand-logo-mobile mb-0">m.</p>
@@ -53,7 +53,7 @@ export default function MobileTopBar({ children }: MobileTopBarProps) {
                     </aside>
                     <div className="col-8"></div>
                     <aside className="col-2 d-flex pt-3">
-                        <button type="button" className="btn btn-link p-0 text-dark" aria-label={t("#900aria04")}>
+                        <button type="button" className="btn btn-link p-0 text-dark" aria-label={t("Open search")}>
                             <SearchOutlinedIcon fontSize="small" />
                         </button>
                     </aside>

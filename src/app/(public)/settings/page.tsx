@@ -23,7 +23,7 @@ export default function SettingsPage() {
     }, []);
 
     return (
-        <SectionPage pageKey="settings_page" titleId="#400title01" showDefaultDescription={false}>
+        <SectionPage>
             <div className="row ">
                 <div className="col-1"></div>
                 <section className="col-10 border rounded justify-content-center p-3">

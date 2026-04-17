@@ -175,247 +175,307 @@
     "guest_overlay": [
         {
             "component_id": "#950title01",
+            "key": "Welcome to Chronicles",
             "translation": "Tongasoa eto amin'ny Chronicles"
         },
         {
             "component_id": "#950body01",
+            "key": "You are currently logged out. Login or sign in to unlock a better experience.",
             "translation": "Mivoaka ianao amin'izao fotoana izao. Midira na misorata anarana mba hahazoana traikefa tsara kokoa."
         },
         {
             "component_id": "#950cta01",
+            "key": "Login",
             "translation": "Miditra"
         },
         {
             "component_id": "#950cta02",
+            "key": "Sign in",
             "translation": "Misoratra anarana"
         },
         {
             "component_id": "#950aria01",
+            "key": "Close login prompt",
             "translation": "Akatona ny fanasana hiditra"
         }
     ],
     "mobile_topbar": [
         {
             "component_id": "#900aria01",
+            "key": "Open navigation menu",
             "translation": "Sokafy ny menio fitetezana"
         },
         {
             "component_id": "#900aria02",
+            "key": "Close sidebar overlay",
             "translation": "Akatona ny ambangovangony sisiny"
         },
         {
             "component_id": "#900aria03",
+            "key": "Mobile navigation sidebar",
             "translation": "Sisiny fitetezana finday"
         },
         {
             "component_id": "#900aria04",
+            "key": "Open search",
             "translation": "Sokafy ny fikarohana"
         }
     ],
     "auth_pages": [
         {
             "component_id": "#010label01",
-            "translation": "Famantarana"
+            "translation": "Famantarana",
+            "key": "Identifier"
         },
         {
             "component_id": "#010help01",
-            "translation": "Ampidiro ny email na ny tag-n'ny kaontinao"
+            "translation": "Ampidiro ny email na ny tag-n'ny kaontinao",
+            "key": "Enter your email or your account tag"
         },
         {
             "component_id": "#010label02",
-            "translation": "Teny miafina"
+            "translation": "Teny miafina",
+            "key": "Login password label"
         },
         {
             "component_id": "#010help02",
-            "translation": "Ampidiro ilay teny miafina nofaritanao"
+            "translation": "Ampidiro ilay teny miafina nofaritanao",
+            "key": "Enter the password you set"
         },
         {
             "component_id": "#010cta01",
-            "translation": "Hiditra"
+            "translation": "Hiditra",
+            "key": "Login"
         },
         {
             "component_id": "#010status01",
-            "translation": "Eo am-pidirana..."
+            "translation": "Eo am-pidirana...",
+            "key": "Logging in..."
         },
         {
             "component_id": "#010link01",
-            "translation": "Hamorona kaonty"
+            "translation": "Hamorona kaonty",
+            "key": "Create an account"
         },
         {
             "component_id": "#010error01",
-            "translation": "Tsy tafiditra. Hamarino ny mombamomba anao."
+            "translation": "Tsy tafiditra. Hamarino ny mombamomba anao.",
+            "key": "Login failed. Please check your credentials."
         },
         {
             "component_id": "#020title01",
-            "translation": "Mamorona kaonty"
+            "translation": "Mamorona kaonty",
+            "key": "Create your account"
         },
         {
             "component_id": "#020body01",
-            "translation": "Dingana 1 amin'ny 2 : fampahafantarana fototra"
+            "translation": "Dingana 1 amin'ny 2 : fampahafantarana fototra",
+            "key": "Step 1 of 2: main information"
         },
         {
             "component_id": "#020link01",
-            "translation": "Efa manana kaonty aho"
+            "translation": "Efa manana kaonty aho",
+            "key": "I already have an account"
         },
         {
             "component_id": "#020label01",
-            "translation": "Email"
+            "translation": "Email",
+            "key": "Email"
         },
         {
             "component_id": "#020label02",
-            "translation": "Username"
+            "translation": "Username",
+            "key": "Username"
         },
         {
             "component_id": "#020label03",
-            "translation": "Usertag"
+            "translation": "Usertag",
+            "key": "Usertag"
         },
         {
             "component_id": "#020label04",
-            "translation": "Teny miafina"
+            "translation": "Teny miafina",
+            "key": "Signup password label"
         },
         {
             "component_id": "#020label05",
-            "translation": "Firenena"
+            "translation": "Firenena",
+            "key": "Country"
         },
         {
             "component_id": "#020label06",
-            "translation": "Anjara asa (safidy tokana)"
+            "translation": "Anjara asa (safidy tokana)",
+            "key": "Role (single choice)"
         },
         {
             "component_id": "#020label07",
-            "translation": "Fiteny tiana"
+            "translation": "Fiteny tiana",
+            "key": "Preferred language"
         },
         {
             "component_id": "#020role01",
-            "translation": "Admin"
+            "translation": "Admin",
+            "key": "Admin"
         },
         {
             "component_id": "#020role02",
-            "translation": "Mpanoratra"
+            "translation": "Mpanoratra",
+            "key": "Author"
         },
         {
             "component_id": "#020role03",
-            "translation": "Mpamaky"
+            "translation": "Mpamaky",
+            "key": "Reader"
         },
         {
             "component_id": "#020cta01",
-            "translation": "Manaraka"
+            "translation": "Manaraka",
+            "key": "Next"
         },
         {
             "component_id": "#020status01",
-            "translation": "Hojerena ny fisian'ny email"
+            "translation": "Hojerena ny fisian'ny email",
+            "key": "Email availability will be checked"
         },
         {
             "component_id": "#020status02",
-            "translation": "Eo am-panamarinana..."
+            "translation": "Eo am-panamarinana...",
+            "key": "Checking availability..."
         },
         {
             "component_id": "#020status03",
-            "translation": "Mbola malalaka ny email"
+            "translation": "Mbola malalaka ny email",
+            "key": "Email is available"
         },
         {
             "component_id": "#020status04",
-            "translation": "Efa ampiasaina ny email"
+            "translation": "Efa ampiasaina ny email",
+            "key": "Email is already used"
         },
         {
             "component_id": "#020status05",
-            "translation": "Tsy nahomby ny fanamarinana"
+            "translation": "Tsy nahomby ny fanamarinana",
+            "key": "Availability check failed"
         },
         {
             "component_id": "#020status06",
-            "translation": "Hojerena ny fisian'ny usertag"
+            "translation": "Hojerena ny fisian'ny usertag",
+            "key": "Usertag availability will be checked"
         },
         {
             "component_id": "#020status07",
-            "translation": "Efa ampiasaina ny usertag"
+            "translation": "Efa ampiasaina ny usertag",
+            "key": "Usertag is already used"
         },
         {
             "component_id": "#020status08",
-            "translation": "Mbola malalaka ny usertag"
+            "translation": "Mbola malalaka ny usertag",
+            "key": "Usertag is available"
         },
         {
             "component_id": "#020error01",
-            "translation": "Tsy afaka maka firenena, fiteny, anjara asa na lahy/vavy."
+            "translation": "Tsy afaka maka firenena, fiteny, anjara asa na lahy/vavy.",
+            "key": "Unable to load countries, languages, roles, or genders."
         },
         {
             "component_id": "#030label01",
-            "translation": "Bio"
+            "translation": "Bio",
+            "key": "Bio"
         },
         {
             "component_id": "#030label02",
-            "translation": "Lahy/Vavy"
+            "translation": "Lahy/Vavy",
+            "key": "Gender"
         },
         {
             "component_id": "#030label03",
-            "translation": "Taona nahaterahana"
+            "translation": "Taona nahaterahana",
+            "key": "Birth year"
         },
         {
             "component_id": "#030label04",
-            "translation": "Sary mombamomba"
+            "translation": "Sary mombamomba",
+            "key": "Profile picture"
         },
         {
             "component_id": "#030placeholder01",
-            "translation": "Lazao fohifohy ny momba anao"
+            "translation": "Lazao fohifohy ny momba anao",
+            "key": "Tell us a bit about yourself"
         },
         {
             "component_id": "#030placeholder02",
-            "translation": "Tsy voatondro"
+            "translation": "Tsy voatondro",
+            "key": "Not specified"
         },
         {
             "component_id": "#030body01",
-            "translation": "Sintomy-apetraho eto ny sary na ampidiro avy amin'ny rakitra."
+            "translation": "Sintomy-apetraho eto ny sary na ampidiro avy amin'ny rakitra.",
+            "key": "Drag and drop an image here or import it."
         },
         {
             "component_id": "#030cta01",
-            "translation": "Ampidiro sary"
+            "translation": "Ampidiro sary",
+            "key": "Import image"
         },
         {
             "component_id": "#030cta02",
-            "translation": "Hiverina"
+            "translation": "Hiverina",
+            "key": "Previous"
         },
         {
             "component_id": "#030cta03",
-            "translation": "Hitsambikina"
+            "translation": "Hitsambikina",
+            "key": "Skip"
         },
         {
             "component_id": "#030cta04",
-            "translation": "Hisoratra anarana"
+            "translation": "Hisoratra anarana",
+            "key": "Sign up"
         },
         {
             "component_id": "#030aria01",
-            "translation": "Topi-maso avatar"
+            "translation": "Topi-maso avatar",
+            "key": "Avatar preview"
         },
         {
             "component_id": "#030error01",
-            "translation": "Tsy mifanaraka ny fanamafisana teny miafina."
+            "translation": "Tsy mifanaraka ny fanamafisana teny miafina.",
+            "key": "Password confirmation does not match."
         },
         {
             "component_id": "#030error02",
-            "translation": "Tsy nahomby ny fisoratana anarana. Hamarino ny mombamomba anao."
+            "translation": "Tsy nahomby ny fisoratana anarana. Hamarino ny mombamomba anao.",
+            "key": "Signup failed. Please verify your information."
         },
         {
             "component_id": "#040title01",
-            "translation": "Fanamafisana teny miafina"
+            "translation": "Fanamafisana teny miafina",
+            "key": "Password confirmation"
         },
         {
             "component_id": "#040body01",
-            "translation": "Ampidiro indray ny teny miafina hanamafisana ny fisoratana anarana."
+            "translation": "Ampidiro indray ny teny miafina hanamafisana ny fisoratana anarana.",
+            "key": "Enter your password again to confirm registration."
         },
         {
             "component_id": "#040label01",
-            "translation": "Hamarino ny teny miafina"
+            "translation": "Hamarino ny teny miafina",
+            "key": "Confirm password"
         },
         {
             "component_id": "#040cta01",
-            "translation": "Ajanony"
+            "translation": "Ajanony",
+            "key": "Cancel"
         },
         {
             "component_id": "#040cta02",
-            "translation": "Hamarino ary mamorona kaonty"
+            "translation": "Hamarino ary mamorona kaonty",
+            "key": "Confirm and create account"
         },
         {
             "component_id": "#040status01",
-            "translation": "Eo am-pamoronana kaonty..."
+            "translation": "Eo am-pamoronana kaonty...",
+            "key": "Creating account..."
         }
     ]
 }
