@@ -138,30 +138,37 @@
     "right_sidebar": [
         {
             "component_id": "#800search01",
+            "key": "Search...",
             "translation": "Mitady..."
         },
         {
             "component_id": "#800aria01",
+            "key": "Search chronicles",
             "translation": "Hitady ao amin'ny chronicles"
         },
         {
             "component_id": "#800aria02",
+            "key": "Open search",
             "translation": "Sokafy ny fikarohana"
         },
         {
             "component_id": "#800aria03",
+            "key": "Logged out quick actions",
             "translation": "Hetsika haingana rehefa mivoaka"
         },
         {
             "component_id": "#800guest01",
+            "key": "Continue after login or sign in",
             "translation": "Tohizo rehefa miditra na misoratra anarana"
         },
         {
             "component_id": "#800guest02",
+            "key": "Login",
             "translation": "Miditra"
         },
         {
             "component_id": "#800guest03",
+            "key": "Sign in",
             "translation": "Misoratra anarana"
         }
     ],

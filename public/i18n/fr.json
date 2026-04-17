@@ -138,30 +138,37 @@
     "right_sidebar": [
         {
             "component_id": "#800search01",
+            "key": "Search...",
             "translation": "Rechercher..."
         },
         {
             "component_id": "#800aria01",
+            "key": "Search chronicles",
             "translation": "Rechercher dans chronicles"
         },
         {
             "component_id": "#800aria02",
+            "key": "Open search",
             "translation": "Ouvrir la recherche"
         },
         {
             "component_id": "#800aria03",
+            "key": "Logged out quick actions",
             "translation": "Actions rapides en mode déconnecté"
         },
         {
             "component_id": "#800guest01",
+            "key": "Continue after login or sign in",
             "translation": "Continuez après connexion ou inscription"
         },
         {
             "component_id": "#800guest02",
+            "key": "Login",
             "translation": "Connexion"
         },
         {
             "component_id": "#800guest03",
+            "key": "Sign in",
             "translation": "Inscription"
         }
     ],

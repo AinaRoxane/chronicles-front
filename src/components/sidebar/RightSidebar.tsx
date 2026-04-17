@@ -48,13 +48,13 @@ export default function RightSidebar() {
         <aside className="h-100 p-3">
             {/* Desktop */}
             <div className="d-none d-md-block">
-                <form className="row align-items-center g-0" role="search" aria-label={t("#800aria01")} autoComplete="off">
+                <form className="row align-items-center g-0" role="search" aria-label={t("Search chronicles")} autoComplete="off">
                     <div className="col-10 px-2">
                         <input
                             id="sidebar-search"
                             type="text"
                             className="form-control search-input"
-                            placeholder={t("#800search01")}
+                            placeholder={t("Search...")}
                             name="q"
                             value={search}
                             onChange={handleInput}
@@ -67,14 +67,14 @@ export default function RightSidebar() {
                 </form>
 
                 {shouldShowCompactPrompt ? (
-                    <section className="guest-teaser-card mt-4" aria-label={t("#800aria03")}>
-                        <p className="small text-secondary mb-2">{t("#800guest01")}</p>
+                    <section className="guest-teaser-card mt-4" aria-label={t("Logged out quick actions")}>
+                        <p className="small text-secondary mb-2">{t("Continue after login or sign in")}</p>
                         <div className="d-flex gap-2">
                             <Link href="/auth/login" className="guest-teaser-btn guest-teaser-btn-primary">
-                                {t("#800guest02")}
+                                {t("Login")}
                             </Link>
                             <Link href="/auth/signin" className="guest-teaser-btn">
-                                {t("#800guest03")}
+                                {t("Sign in")}
                             </Link>
                         </div>
                     </section>
@@ -83,7 +83,7 @@ export default function RightSidebar() {
 
             {/* Mobile: icon only, top right */}
             <div className="d-md-none d-flex justify-content-end">
-                <button type="button" className="btn btn-link p-0 text-dark" aria-label={t("#800aria02")}>
+                <button type="button" className="btn btn-link p-0 text-dark" aria-label={t("Open search")}>
                     <SearchOutlinedIcon fontSize="medium" />
                 </button>
             </div>

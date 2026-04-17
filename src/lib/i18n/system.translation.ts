@@ -1,6 +1,7 @@
 export type TranslationRow = {
     component_id: string;
     translation: string;
+    key?: string;
 };
 
 export type TranslationPayload = Record<string, TranslationRow[]>;
@@ -22,6 +23,10 @@ export function buildTranslationIndex(payload: TranslationPayload): TranslationI
             }
 
             index[pageTitle][row.component_id] = row.translation;
+
+            if (row.key) {
+                index[pageTitle][row.key] = row.translation;
+            }
         }
     }
 
