@@ -83,8 +83,10 @@ function resolveLanguageFileCode(languageCode: string): string {
 }
 
 export default function LanguageProvider({ children }: { children: React.ReactNode }) {
-    const [index, setIndex] = useState<TranslationIndex>({});
-    const [ready, setReady] = useState(false);
+    const [fallbackIndex, setFallbackIndex] = useState<TranslationIndex>({});
+    const [activeIndex, setActiveIndex] = useState<TranslationIndex>({});
+    const [fallbackReady, setFallbackReady] = useState(false);
+    const [activeReady, setActiveReady] = useState(false);
     const [activeLanguage, setActiveLanguageState] = useState<string>(FALLBACK_LANGUAGE);
 
     useEffect(() => {
@@ -97,9 +99,45 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
     useEffect(() => {
         let ignore = false;
 
-        setReady(false);
+        fetch(`/i18n/${FALLBACK_LANGUAGE.toLowerCase()}.json`)
+            .then(async (response) => {
+                if (!response.ok) {
+                    throw new Error("Missing fallback translation file");
+                }
+
+                const payload = (await response.json()) as TranslationPayload;
+                if (!ignore) {
+                    setFallbackIndex(buildTranslationIndex(payload));
+                }
+            })
+            .catch(() => {
+                if (!ignore) {
+                    setFallbackIndex({});
+                }
+            })
+            .finally(() => {
+                if (!ignore) {
+                    setFallbackReady(true);
+                }
+            });
+
+        return () => {
+            ignore = true;
+        };
+    }, []);
+
+    useEffect(() => {
+        let ignore = false;
+
+        setActiveReady(false);
 
         const normalized = resolveLanguageFileCode(activeLanguage);
+        if (normalized === FALLBACK_LANGUAGE.toLowerCase()) {
+            setActiveIndex({});
+            setActiveReady(true);
+            return;
+        }
+
         const targetUrl = `/i18n/${normalized}.json`;
 
         fetch(targetUrl)
@@ -110,36 +148,17 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
 
                 const payload = (await response.json()) as TranslationPayload;
                 if (!ignore) {
-                    setIndex(buildTranslationIndex(payload));
+                    setActiveIndex(buildTranslationIndex(payload));
                 }
             })
-            .catch(async () => {
-                if (normalized === FALLBACK_LANGUAGE.toLowerCase()) {
-                    if (!ignore) {
-                        setIndex({});
-                    }
-                    return;
-                }
-
-                try {
-                    const fallbackResponse = await fetch(`/i18n/${FALLBACK_LANGUAGE.toLowerCase()}.json`);
-                    if (!fallbackResponse.ok) {
-                        throw new Error("Missing fallback translation file");
-                    }
-
-                    const fallbackPayload = (await fallbackResponse.json()) as TranslationPayload;
-                    if (!ignore) {
-                        setIndex(buildTranslationIndex(fallbackPayload));
-                    }
-                } catch {
-                    if (!ignore) {
-                        setIndex({});
-                    }
+            .catch(() => {
+                if (!ignore) {
+                    setActiveIndex({});
                 }
             })
             .finally(() => {
                 if (!ignore) {
-                    setReady(true);
+                    setActiveReady(true);
                 }
             });
 
@@ -160,6 +179,25 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
         writePersistedLanguage(normalized);
     };
 
+    const index = useMemo<TranslationIndex>(() => {
+        const merged: TranslationIndex = {};
+
+        for (const [pageTitle, pageMap] of Object.entries(fallbackIndex)) {
+            merged[pageTitle] = { ...pageMap };
+        }
+
+        for (const [pageTitle, pageMap] of Object.entries(activeIndex)) {
+            merged[pageTitle] = {
+                ...(merged[pageTitle] || {}),
+                ...pageMap,
+            };
+        }
+
+        return merged;
+    }, [activeIndex, fallbackIndex]);
+
+    const ready = fallbackReady && activeReady;
+
     const t = useMemo(
         () => (pageTitle: string, componentId: string) =>
             getTranslatedText(index, pageTitle, componentId),
@@ -178,6 +216,10 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
         getPageT,
         ready,
     };
+
+    if (!fallbackReady) {
+        return null;
+    }
 
     return <LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>;
 }
