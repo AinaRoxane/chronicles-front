@@ -3,6 +3,15 @@ import { BACKEND_URL } from "@/services/static";
 import store from "@/store";
 import { setAuth, logout } from "@/store/auth.slice";
 
+const isPublicRequest = (url?: string): boolean => {
+    if (!url) {
+        return false;
+    }
+
+    const normalizedUrl = url.startsWith('/') ? url.slice(1) : url;
+    return normalizedUrl.startsWith('public/');
+};
+
 // Create Axios instance
 const apiClient = axios.create({
     baseURL: BACKEND_URL,
@@ -17,6 +26,14 @@ apiClient.interceptors.request.use(
     (config) => {
         const state = store.getState();
         const token = state.auth.token;
+
+        if (isPublicRequest(config.url)) {
+            if (config.headers) {
+                delete config.headers.Authorization;
+            }
+            return config;
+        }
+
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
@@ -30,6 +47,10 @@ apiClient.interceptors.response.use(
     (response) => response,
     async (error) => {
         const originalRequest = error.config;
+
+        if (isPublicRequest(originalRequest?.url)) {
+            return Promise.reject(error);
+        }
 
         // Only attempt refresh if 401 and we haven't already retried
         if (error.response?.status === 401 && !originalRequest._retry) {

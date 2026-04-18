@@ -3,16 +3,6 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import AuthCardShell from "@/components/auth/AuthCardShell";
-import PasswordConfirmModal from "@/components/auth/PasswordConfirmModal";
-import AvatarUploadBox from "@/components/forms/AvatarUploadBox";
-import AvailabilityIndicator, {
-    AvailabilityStatus,
-} from "@/components/forms/AvailabilityIndicator";
-import PasswordInput from "@/components/forms/PasswordInput";
-import SelectInput from "@/components/forms/SelectInput";
-import TextAreaInput from "@/components/forms/TextAreaInput";
-import TextInput from "@/components/forms/TextInput";
 import {
     availabilityService,
 } from "@/services/auth/availability.service";
@@ -27,7 +17,8 @@ import {
     useLanguage,
     usePageTranslation,
 } from "@/components/providers/LanguageProvider";
-import styles from "../auth.module.css";
+
+type AvailabilityStatus = "idle" | "checking" | "available" | "taken" | "error";
 
 export default function SigninPage() {
     const [step, setStep] = useState<1 | 2>(1);
@@ -278,197 +269,345 @@ export default function SigninPage() {
         label: translatedGenderLabels[item.code] || item.name,
     }));
 
+    function availabilityText(status: AvailabilityStatus, type: "email" | "usertag"): string {
+        if (status === "checking") {
+            return t("Checking availability...");
+        }
+
+        if (status === "available") {
+            return type === "email" ? t("Email is available") : t("Usertag is available");
+        }
+
+        if (status === "taken") {
+            return type === "email" ? t("Email is already used") : t("Usertag is already used");
+        }
+
+        if (status === "error") {
+            return t("Availability check failed");
+        }
+
+        return type === "email"
+            ? t("Email availability will be checked")
+            : t("Usertag availability will be checked");
+    }
+
+    function availabilityClass(status: AvailabilityStatus): string {
+        if (status === "available") {
+            return "text-success";
+        }
+
+        if (status === "taken" || status === "error") {
+            return "text-danger";
+        }
+
+        return "text-body-secondary";
+    }
+
     return (
-        <AuthCardShell>
-            {step === 1 ? (
-                <div className="row g-0">
-                    <div className={`col-md-6 ${styles.splitPanel} shell-divider-right p-2`}>
-                        <div className="p-2">
-                            <p className="mb-1 fw-semibold">{t("Create your account")}</p>
-                            <p className={styles.formSubLabel}>{t("Step 1 of 2: main information")}</p>
-                            <Link href="/auth/login" className={styles.linkText}>
-                                {t("I already have an account")}
-                            </Link>
+        <main className="container py-4 min-vh-100 d-flex align-items-center justify-content-center">
+            <div className="card shadow-sm border-0" style={{ width: "100%", maxWidth: "980px" }}>
+                <div className="card-body p-3 p-md-4">
+                    <div className="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4">
+                        <div>
+                            <h1 className="h4 mb-1">{t("Create your account")}</h1>
+                            <p className="text-body-secondary mb-0">
+                                {step === 1 ? t("Step 1 of 2: main information") : t("Step 2 of 2: optional profile")}
+                            </p>
                         </div>
+                        <Link href="/auth/login" className="link-secondary">
+                            {t("I already have an account")}
+                        </Link>
                     </div>
 
-                    <div className="col-md-6 p-3">
-                        <TextInput
-                            id="signin-email"
-                            type="email"
-                            label={t("Email")}
-                            value={email}
-                            onChange={setEmail}
-                            required
-                        />
-                        <AvailabilityIndicator
-                            status={emailStatus}
-                            idleText={t("Email availability will be checked")}
-                            checkingText={t("Checking availability...")}
-                            availableText={t("Email is available")}
-                            takenText={t("Email is already used")}
-                            errorText={t("Availability check failed")}
-                        />
+                    {errorMessage ? <p className="text-danger small mb-3">{errorMessage}</p> : null}
 
-                        <TextInput
-                            id="signin-username"
-                            label={t("Username")}
-                            value={username}
-                            onChange={setUsername}
-                            required
-                        />
+                    {step === 1 ? (
+                        <div className="row g-3">
+                            <div className="col-md-6">
+                                <label htmlFor="signin-email" className="form-label fw-semibold">
+                                    {t("Email")}
+                                </label>
+                                <input
+                                    id="signin-email"
+                                    type="email"
+                                    className="form-control"
+                                    value={email}
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    required
+                                />
+                                <p className={`small mt-2 mb-0 ${availabilityClass(emailStatus)}`}>
+                                    {availabilityText(emailStatus, "email")}
+                                </p>
+                            </div>
 
-                        <TextInput
-                            id="signin-usertag"
-                            label={t("Usertag")}
-                            value={usertag}
-                            onChange={setUsertag}
-                            required
-                        />
-                        <AvailabilityIndicator
-                            status={usertagStatus}
-                            idleText={t("Usertag availability will be checked")}
-                            checkingText={t("Checking availability...")}
-                            availableText={t("Usertag is available")}
-                            takenText={t("Usertag is already used")}
-                            errorText={t("Availability check failed")}
-                        />
+                            <div className="col-md-6">
+                                <label htmlFor="signin-username" className="form-label fw-semibold">
+                                    {t("Username")}
+                                </label>
+                                <input
+                                    id="signin-username"
+                                    type="text"
+                                    className="form-control"
+                                    value={username}
+                                    onChange={(event) => setUsername(event.target.value)}
+                                    required
+                                />
+                            </div>
 
-                        <PasswordInput
-                            id="signin-password"
-                            label={t("Signup password label")}
-                            value={password}
-                            onChange={setPassword}
-                            required
-                        />
+                            <div className="col-md-6">
+                                <label htmlFor="signin-usertag" className="form-label fw-semibold">
+                                    {t("Usertag")}
+                                </label>
+                                <input
+                                    id="signin-usertag"
+                                    type="text"
+                                    className="form-control"
+                                    value={usertag}
+                                    onChange={(event) => setUsertag(event.target.value)}
+                                    required
+                                />
+                                <p className={`small mt-2 mb-0 ${availabilityClass(usertagStatus)}`}>
+                                    {availabilityText(usertagStatus, "usertag")}
+                                </p>
+                            </div>
 
-                        <SelectInput
-                            id="signin-country"
-                            label={t("Country")}
-                            value={countryIsoCode}
-                            onChange={setCountryIsoCode}
-                            options={countryOptions}
-                            disabled={loadingLists}
-                            required
-                        />
+                            <div className="col-md-6">
+                                <label htmlFor="signin-password" className="form-label fw-semibold">
+                                    {t("Signup password label")}
+                                </label>
+                                <input
+                                    id="signin-password"
+                                    type="password"
+                                    className="form-control"
+                                    value={password}
+                                    onChange={(event) => setPassword(event.target.value)}
+                                    required
+                                />
+                            </div>
 
-                        <div className="mb-2">
-                            <label className={styles.formLabel}>{t("Role (single choice)")}</label>
-                            <div className="d-grid gap-2">
-                                {roles.map((role) => (
-                                    <label key={role.code} className={`${styles.roleChoice} d-flex align-items-center gap-2`}>
-                                        <input
-                                            type="checkbox"
-                                            checked={userRoleCode === role.code}
-                                            onChange={(event) => {
-                                                if (event.target.checked) {
-                                                    setUserRoleCode(role.code);
-                                                }
-                                            }}
-                                        />
-                                        <span>{resolveRoleLabel(role.code)}</span>
-                                    </label>
-                                ))}
+                            <div className="col-md-6">
+                                <label htmlFor="signin-country" className="form-label fw-semibold">
+                                    {t("Country")}
+                                </label>
+                                <select
+                                    id="signin-country"
+                                    className="form-select"
+                                    value={countryIsoCode}
+                                    onChange={(event) => setCountryIsoCode(event.target.value)}
+                                    disabled={loadingLists}
+                                    required
+                                >
+                                    {countryOptions.map((option) => (
+                                        <option key={option.value} value={option.value}>
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="col-md-6">
+                                <label className="form-label fw-semibold">{t("Role (single choice)")}</label>
+                                <div className="border rounded p-2">
+                                    {roles.map((role) => (
+                                        <div className="form-check" key={role.code}>
+                                            <input
+                                                id={`signin-role-${role.code}`}
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                checked={userRoleCode === role.code}
+                                                onChange={(event) => {
+                                                    if (event.target.checked) {
+                                                        setUserRoleCode(role.code);
+                                                    }
+                                                }}
+                                            />
+                                            <label className="form-check-label" htmlFor={`signin-role-${role.code}`}>
+                                                {resolveRoleLabel(role.code)}
+                                            </label>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="col-md-6">
+                                <label htmlFor="signin-language" className="form-label fw-semibold">
+                                    {t("Preferred language")}
+                                </label>
+                                <select
+                                    id="signin-language"
+                                    className="form-select"
+                                    value={userPreferedLanguageCode}
+                                    onChange={(event) => setUserPreferedLanguageCode(event.target.value)}
+                                    disabled={loadingLists}
+                                    required
+                                >
+                                    {languageOptions.map((option) => (
+                                        <option key={option.value} value={option.value}>
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="col-12 d-flex justify-content-end mt-2">
+                                <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    disabled={!isStep1Valid || loadingLists || emailStatus === "taken" || usertagStatus === "taken"}
+                                    onClick={() => setStep(2)}
+                                >
+                                    {t("Next")}
+                                </button>
                             </div>
                         </div>
+                    ) : (
+                        <div className="row g-3">
+                            <div className="col-md-6">
+                                <label htmlFor="signin-bio" className="form-label fw-semibold">
+                                    {t("Bio")}
+                                </label>
+                                <textarea
+                                    id="signin-bio"
+                                    className="form-control"
+                                    value={bio}
+                                    onChange={(event) => setBio(event.target.value)}
+                                    placeholder={t("Tell us a bit about yourself")}
+                                    rows={4}
+                                />
+                            </div>
 
-                        <SelectInput
-                            id="signin-language"
-                            label={t("Preferred language")}
-                            value={userPreferedLanguageCode}
-                            onChange={setUserPreferedLanguageCode}
-                            options={languageOptions}
-                            disabled={loadingLists}
-                            required
-                        />
+                            <div className="col-md-6">
+                                <label htmlFor="signin-gender" className="form-label fw-semibold">
+                                    {t("Gender")}
+                                </label>
+                                <select
+                                    id="signin-gender"
+                                    className="form-select"
+                                    value={gender}
+                                    onChange={(event) => setGender(event.target.value)}
+                                >
+                                    <option value="">{t("Not specified")}</option>
+                                    {genderOptions.map((option) => (
+                                        <option key={option.value} value={option.value}>
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
 
-                        <button
-                            type="button"
-                            className={styles.primaryBtn}
-                            disabled={!isStep1Valid || loadingLists || emailStatus === "taken" || usertagStatus === "taken"}
-                            onClick={() => setStep(2)}
-                        >
-                            {t("Next")}
-                        </button>
+                            <div className="col-md-6">
+                                <label htmlFor="signin-birthyear" className="form-label fw-semibold">
+                                    {t("Birth year")}
+                                </label>
+                                <input
+                                    id="signin-birthyear"
+                                    type="number"
+                                    className="form-control"
+                                    value={birthYear}
+                                    onChange={(event) => setBirthYear(event.target.value)}
+                                    min={1900}
+                                    max={2100}
+                                />
+                            </div>
+
+                            <div className="col-md-6">
+                                <label htmlFor="signin-avatar-url" className="form-label fw-semibold">
+                                    {t("Profile picture")}
+                                </label>
+                                <input
+                                    id="signin-avatar-url"
+                                    type="url"
+                                    className="form-control mb-2"
+                                    value={avatarUrl}
+                                    onChange={(event) => setAvatarUrl(event.target.value)}
+                                    placeholder="https://example.com/avatar.jpg"
+                                />
+                                <input
+                                    id="signin-avatar-name"
+                                    type="text"
+                                    className="form-control"
+                                    value={avatarName}
+                                    onChange={(event) => setAvatarName(event.target.value)}
+                                    placeholder={t("Import image")}
+                                />
+                                <div className="form-text">
+                                    {t("Drag and drop an image here or import it.")}
+                                </div>
+                                {avatarUrl ? (
+                                    <img
+                                        src={avatarUrl}
+                                        alt={t("Avatar preview")}
+                                        className="img-thumbnail mt-2"
+                                        style={{ width: "112px", height: "112px", objectFit: "cover" }}
+                                    />
+                                ) : null}
+                            </div>
+
+                            <div className="col-12 d-flex flex-wrap gap-2 justify-content-end mt-2">
+                                <button type="button" className="btn btn-outline-secondary" onClick={() => setStep(1)}>
+                                    {t("Previous")}
+                                </button>
+                                <button type="button" className="btn btn-outline-secondary" onClick={() => openConfirmModal(true)}>
+                                    {t("Skip")}
+                                </button>
+                                <button type="button" className="btn btn-primary" onClick={() => openConfirmModal(false)}>
+                                    {t("Sign up")}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            {confirmPasswordOpen ? (
+                <div
+                    className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center p-3"
+                    style={{ zIndex: 1200 }}
+                >
+                    <div className="card shadow-sm border-0" style={{ width: "100%", maxWidth: "460px" }}>
+                        <div className="card-body">
+                            <h2 className="h5 mb-2">{t("Password confirmation")}</h2>
+                            <p className="text-body-secondary mb-3">
+                                {t("Enter your password again to confirm registration.")}
+                            </p>
+
+                            <form onSubmit={submitSignup}>
+                                <div className="mb-3">
+                                    <label htmlFor="signin-confirm-password" className="form-label fw-semibold">
+                                        {t("Confirm password")}
+                                    </label>
+                                    <input
+                                        id="signin-confirm-password"
+                                        type="password"
+                                        className="form-control"
+                                        value={confirmPassword}
+                                        onChange={(event) => setConfirmPassword(event.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                {errorMessage ? <p className="text-danger small mb-3">{errorMessage}</p> : null}
+
+                                <div className="d-flex justify-content-end gap-2">
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => {
+                                            setConfirmPasswordOpen(false);
+                                            setErrorMessage(null);
+                                        }}
+                                    >
+                                        {t("Cancel")}
+                                    </button>
+                                    <button type="submit" className="btn btn-primary" disabled={submitting}>
+                                        {submitting ? t("Creating account...") : t("Confirm and create account")}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            ) : (
-                <div className="row g-0">
-                    <div className={`col-md-6 ${styles.splitPanel} shell-divider-right p-3`}>
-                        <TextAreaInput
-                            id="signin-bio"
-                            label={t("Bio")}
-                            value={bio}
-                            onChange={setBio}
-                            placeholder={t("Tell us a bit about yourself")}
-                        />
-
-                        <SelectInput
-                            id="signin-gender"
-                            label={t("Gender")}
-                            value={gender}
-                            onChange={setGender}
-                            options={genderOptions}
-                            placeholder={t("Not specified")}
-                        />
-
-                        <TextInput
-                            id="signin-birthyear"
-                            type="number"
-                            label={t("Birth year")}
-                            value={birthYear}
-                            onChange={setBirthYear}
-                            min={1900}
-                            max={2100}
-                        />
-                    </div>
-
-                    <div className="col-md-6 p-3">
-                        <AvatarUploadBox
-                            label={t("Profile picture")}
-                            emptyText={t("Drag and drop an image here or import it.")}
-                            buttonText={t("Import image")}
-                            previewAlt={t("Avatar preview")}
-                            avatarUrl={avatarUrl}
-                            avatarName={avatarName}
-                            onAvatarChange={({ avatarUrl: nextAvatarUrl, avatarName: nextAvatarName }) => {
-                                setAvatarUrl(nextAvatarUrl);
-                                setAvatarName(nextAvatarName);
-                            }}
-                        />
-                    </div>
-
-                    <div className="col-12 d-flex gap-2 justify-content-end p-3 shell-divider-top">
-                        <button type="button" className={styles.secondaryBtn} onClick={() => setStep(1)}>
-                            {t("Previous")}
-                        </button>
-                        <button type="button" className={styles.secondaryBtn} onClick={() => openConfirmModal(true)}>
-                            {t("Skip")}
-                        </button>
-                        <button type="button" className={styles.primaryBtn} onClick={() => openConfirmModal(false)}>
-                            {t("Sign up")}
-                        </button>
-                    </div>
-                </div>
-            )}
-            <PasswordConfirmModal
-                open={confirmPasswordOpen}
-                title={t("Password confirmation")}
-                body={t("Enter your password again to confirm registration.")}
-                confirmPassword={confirmPassword}
-                confirmLabel={t("Confirm password")}
-                cancelText={t("Cancel")}
-                submitText={t("Confirm and create account")}
-                submittingText={t("Creating account...")}
-                submitting={submitting}
-                errorMessage={errorMessage}
-                onConfirmPasswordChange={setConfirmPassword}
-                onClose={() => {
-                    setConfirmPasswordOpen(false);
-                    setErrorMessage(null);
-                }}
-                onSubmit={submitSignup}
-            />
-        </AuthCardShell>
+            ) : null}
+        </main>
     );
 }

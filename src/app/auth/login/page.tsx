@@ -3,14 +3,10 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import AuthCardShell from "@/components/auth/AuthCardShell";
-import PasswordInput from "@/components/forms/PasswordInput";
-import TextInput from "@/components/forms/TextInput";
 import { usePageTranslation } from "@/components/providers/LanguageProvider";
 import { loginService } from "@/services/auth/login.service";
 import { setAuth } from "@/store/auth.slice";
 import { useAppDispatch } from "@/store/hooks";
-import styles from "../auth.module.css";
 
 export default function LoginPage() {
     const [identifier, setIdentifier] = useState("");
@@ -46,46 +42,58 @@ export default function LoginPage() {
     }
 
     return (
-        <AuthCardShell narrow>
-            <form className={styles.sectionPad} onSubmit={onSubmit}>
-                <TextInput
-                    id="login-identifier"
-                    label={t("Identifier")}
-                    subLabel={t("Enter your email or your account tag")}
-                    value={identifier}
-                    onChange={setIdentifier}
-                    autoComplete="username"
-                    required
-                />
+        <main className="container py-4 min-vh-100 d-flex align-items-center justify-content-center">
+            <div className="card shadow-sm border-0" style={{ width: "100%", maxWidth: "540px" }}>
+                <div className="card-body p-4 p-md-5">
+                    <h1 className="h4 mb-1">{t("Login")}</h1>
+                    <p className="text-body-secondary mb-4">{t("Enter your email or your account tag")}</p>
 
-                <PasswordInput
-                    id="login-password"
-                    label={t("Login password label")}
-                    subLabel={t("Enter the password you set")}
-                    value={password}
-                    onChange={setPassword}
-                    autoComplete="current-password"
-                    required
-                />
+                    <form onSubmit={onSubmit}>
+                        <div className="mb-3">
+                            <label htmlFor="login-identifier" className="form-label fw-semibold">
+                                {t("Identifier")}
+                            </label>
+                            <input
+                                id="login-identifier"
+                                type="text"
+                                className="form-control"
+                                value={identifier}
+                                onChange={(event) => setIdentifier(event.target.value)}
+                                autoComplete="username"
+                                required
+                            />
+                        </div>
 
-                {errorMessage ? <p className={`${styles.errorText} mb-2`}>{errorMessage}</p> : null}
+                        <div className="mb-3">
+                            <label htmlFor="login-password" className="form-label fw-semibold">
+                                {t("Login password label")}
+                            </label>
+                            <input
+                                id="login-password"
+                                type="password"
+                                className="form-control"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                                autoComplete="current-password"
+                                required
+                            />
+                            <div className="form-text">{t("Enter the password you set")}</div>
+                        </div>
 
-                <div className="row mb-3">
-                    <div className="col-12">
-                        <button type="submit" className={styles.primaryBtn} disabled={submitting}>
+                        {errorMessage ? <p className="text-danger small mb-3">{errorMessage}</p> : null}
+
+                        <button type="submit" className="btn btn-primary w-100" disabled={submitting}>
                             {submitting ? t("Logging in...") : t("Login")}
                         </button>
-                    </div>
-                </div>
+                    </form>
 
-                <div className="row">
-                    <div className="col-12">
-                        <Link href="/auth/signin" className={styles.linkText}>
+                    <div className="mt-3 text-center">
+                        <Link href="/auth/signin" className="link-secondary">
                             {t("Create an account")}
                         </Link>
                     </div>
                 </div>
-            </form>
-        </AuthCardShell>
+            </div>
+        </main>
     );
 }
