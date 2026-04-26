@@ -373,6 +373,56 @@
             "key": "Usertag is available"
         },
         {
+            "component_id": "#020help08",
+            "translation": "Email format: name@example.com",
+            "key": "Email format: name@example.com"
+        },
+        {
+            "component_id": "#020help09",
+            "translation": "Username format: 3-30 letters, numbers, underscore, with single spaces",
+            "key": "Username format: 3-30 letters, numbers, underscore, with single spaces"
+        },
+        {
+            "component_id": "#020help10",
+            "translation": "Usertag format: 3-30 letters, numbers, dot, underscore, or hyphen",
+            "key": "Usertag format: 3-30 letters, numbers, dot, underscore, or hyphen"
+        },
+        {
+            "component_id": "#020help11",
+            "translation": "Password format: at least 6 characters",
+            "key": "Password format: at least 6 characters"
+        },
+        {
+            "component_id": "#020error09",
+            "translation": "Invalid email format.",
+            "key": "Invalid email format."
+        },
+        {
+            "component_id": "#020error10",
+            "translation": "Invalid username format.",
+            "key": "Invalid username format."
+        },
+        {
+            "component_id": "#020error11",
+            "translation": "Invalid usertag format.",
+            "key": "Invalid usertag format."
+        },
+        {
+            "component_id": "#020error12",
+            "translation": "Invalid password format.",
+            "key": "Invalid password format."
+        },
+        {
+            "component_id": "#020error13",
+            "translation": "Please fix format errors before continuing.",
+            "key": "Please fix format errors before continuing."
+        },
+        {
+            "component_id": "#020error14",
+            "translation": "Unable to load countries, languages, or roles.",
+            "key": "Unable to load countries, languages, or roles."
+        },
+        {
             "component_id": "#020error01",
             "translation": "Unable to load countries, languages, roles, or genders.",
             "key": "Unable to load countries, languages, roles, or genders."

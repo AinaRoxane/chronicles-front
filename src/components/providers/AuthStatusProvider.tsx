@@ -1,6 +1,9 @@
 "use client";
 
 import { createContext, useContext } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
+
 
 type AuthStatusContextValue = {
     isLoggedIn: boolean;
@@ -11,16 +14,13 @@ const AuthStatusContext = createContext<AuthStatusContextValue>({
 });
 
 type AuthStatusProviderProps = {
-    initialLoggedIn: boolean;
     children: React.ReactNode;
 };
 
-export default function AuthStatusProvider({
-    initialLoggedIn,
-    children,
-}: AuthStatusProviderProps) {
+export default function AuthStatusProvider({ children, }: AuthStatusProviderProps) {
+    const isLoggedIn = useSelector((state: RootState) => !!state.auth.token);
     return (
-        <AuthStatusContext.Provider value={{ isLoggedIn: initialLoggedIn }}>
+        <AuthStatusContext.Provider value={{ isLoggedIn }}>
             {children}
         </AuthStatusContext.Provider>
     );

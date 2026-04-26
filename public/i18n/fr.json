@@ -284,12 +284,12 @@
         },
         {
             "component_id": "#020label02",
-            "translation": "Username",
+            "translation": "Nom du profil",
             "key": "Username"
         },
         {
             "component_id": "#020label03",
-            "translation": "Usertag",
+            "translation": "Tag du profil",
             "key": "Usertag"
         },
         {
@@ -359,7 +359,7 @@
         },
         {
             "component_id": "#020status06",
-            "translation": "La disponibilité du usertag sera vérifiée",
+            "translation": "La disponibilité du tag sera vérifiée",
             "key": "Usertag availability will be checked"
         },
         {
@@ -371,6 +371,56 @@
             "component_id": "#020status08",
             "translation": "Usertag disponible",
             "key": "Usertag is available"
+        },
+        {
+            "component_id": "#020help08",
+            "translation": "Format attendu : nom@exemple.com",
+            "key": "Email format: name@example.com"
+        },
+        {
+            "component_id": "#020help09",
+            "translation": "3-30 lettres, chiffres, underscore, avec un seul espace",
+            "key": "Username format: 3-30 letters, numbers, underscore, with single spaces"
+        },
+        {
+            "component_id": "#020help10",
+            "translation": "3-30 lettres, chiffres, point, underscore ou tiret",
+            "key": "Usertag format: 3-30 letters, numbers, dot, underscore, or hyphen"
+        },
+        {
+            "component_id": "#020help11",
+            "translation": "au moins 6 caractères",
+            "key": "Password format: at least 6 characters"
+        },
+        {
+            "component_id": "#020error09",
+            "translation": "Format email invalide.",
+            "key": "Invalid email format."
+        },
+        {
+            "component_id": "#020error10",
+            "translation": "Format nom du profil invalide.",
+            "key": "Invalid username format."
+        },
+        {
+            "component_id": "#020error11",
+            "translation": "Format invalide.",
+            "key": "Invalid usertag format."
+        },
+        {
+            "component_id": "#020error12",
+            "translation": "Le format du mot de passe est invalide.",
+            "key": "Invalid password format."
+        },
+        {
+            "component_id": "#020error13",
+            "translation": "Corrigez les erreurs de format avant de continuer.",
+            "key": "Please fix format errors before continuing."
+        },
+        {
+            "component_id": "#020error14",
+            "translation": "Impossible de charger les pays, langues ou rôles.",
+            "key": "Unable to load countries, languages, or roles."
         },
         {
             "component_id": "#020error01",

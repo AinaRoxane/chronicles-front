@@ -373,6 +373,56 @@
             "key": "Usertag is available"
         },
         {
+            "component_id": "#020help08",
+            "translation": "Endrika email: anarana@example.com",
+            "key": "Email format: name@example.com"
+        },
+        {
+            "component_id": "#020help09",
+            "translation": "Endrika username: tarehintsoratra 3-30, isa, underscore, elanelana tokana",
+            "key": "Username format: 3-30 letters, numbers, underscore, with single spaces"
+        },
+        {
+            "component_id": "#020help10",
+            "translation": "Endrika usertag: tarehintsoratra 3-30, isa, teboka, underscore na tsipi-panohizana",
+            "key": "Usertag format: 3-30 letters, numbers, dot, underscore, or hyphen"
+        },
+        {
+            "component_id": "#020help11",
+            "translation": "Endrika teny miafina: tarehintsoratra 6 farafahakeliny",
+            "key": "Password format: at least 6 characters"
+        },
+        {
+            "component_id": "#020error09",
+            "translation": "Tsy mety ny endrika email.",
+            "key": "Invalid email format."
+        },
+        {
+            "component_id": "#020error10",
+            "translation": "Tsy mety ny endrika username.",
+            "key": "Invalid username format."
+        },
+        {
+            "component_id": "#020error11",
+            "translation": "Tsy mety ny endrika usertag.",
+            "key": "Invalid usertag format."
+        },
+        {
+            "component_id": "#020error12",
+            "translation": "Tsy mety ny endrika teny miafina.",
+            "key": "Invalid password format."
+        },
+        {
+            "component_id": "#020error13",
+            "translation": "Ahitsio aloha ny hadisoana amin'ny endrika vao tohizana.",
+            "key": "Please fix format errors before continuing."
+        },
+        {
+            "component_id": "#020error14",
+            "translation": "Tsy afaka maka firenena, fiteny na anjara asa.",
+            "key": "Unable to load countries, languages, or roles."
+        },
+        {
             "component_id": "#020error01",
             "translation": "Tsy afaka maka firenena, fiteny, anjara asa na lahy/vavy.",
             "key": "Unable to load countries, languages, roles, or genders."

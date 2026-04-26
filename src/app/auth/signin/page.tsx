@@ -20,6 +20,13 @@ import {
 
 type AvailabilityStatus = "idle" | "checking" | "available" | "taken" | "error";
 
+type Step1FormatErrors = {
+    email: string | null;
+    username: string | null;
+    usertag: string | null;
+    password: string | null;
+};
+
 export default function SigninPage() {
     const [step, setStep] = useState<1 | 2>(1);
     const [email, setEmail] = useState("");
@@ -55,6 +62,49 @@ export default function SigninPage() {
     const t = usePageTranslation("auth_pages");
     const { activeLanguage } = useLanguage();
 
+    const step1FormatErrors = useMemo<Step1FormatErrors>(() => {
+        const emailValue = email.trim();
+        const usernameValue = username.trim();
+        const usertagValue = usertag.trim();
+        const passwordValue = password.trim();
+
+        const emailError =
+            emailValue.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)
+                ? t("Invalid email format.")
+                : null;
+
+        const usernameError =
+            usernameValue.length > 0 &&
+                (usernameValue.length < 3 ||
+                    usernameValue.length > 30 ||
+                    !/^[A-Za-z0-9_]+( [A-Za-z0-9_]+)*$/.test(usernameValue))
+                ? t("Invalid username format.")
+                : null;
+
+        const usertagError =
+            usertagValue.length > 0 && !/^[A-Za-z0-9._-]{3,30}$/.test(usertagValue)
+                ? t("Invalid usertag format.")
+                : null;
+
+        const passwordError =
+            passwordValue.length > 0 && passwordValue.length < 6
+                ? t("Invalid password format.")
+                : null;
+
+        return {
+            email: emailError,
+            username: usernameError,
+            usertag: usertagError,
+            password: passwordError,
+        };
+    }, [email, password, t, usertag, username]);
+
+    const hasStep1FormatErrors =
+        step1FormatErrors.email !== null ||
+        step1FormatErrors.username !== null ||
+        step1FormatErrors.usertag !== null ||
+        step1FormatErrors.password !== null;
+
     const isStep1Valid = useMemo(() => {
         return (
             email.trim().length > 0 &&
@@ -80,13 +130,11 @@ export default function SigninPage() {
             countryService.getAll(),
             languageService.getAll(),
             userRoleService.getAll(),
-            genderService.getAll(),
         ])
-            .then(([countryRes, languageRes, roleRes, genderRes]) => {
+            .then(([countryRes, languageRes, roleRes]) => {
                 setCountries(countryRes.data.data);
                 setLanguages(languageRes.data.data);
                 setRoles(roleRes.data.data);
-                setGenders(genderRes.data.data);
 
                 if (countryRes.data.data.length > 0) {
                     setCountryIsoCode((prev) => prev || countryRes.data.data[0].isoCode);
@@ -101,10 +149,19 @@ export default function SigninPage() {
                 }
             })
             .catch(() => {
-                setErrorMessage(t("Unable to load countries, languages, roles, or genders."));
+                setErrorMessage(t("Unable to load countries, languages, or roles."));
             })
             .finally(() => {
                 setLoadingLists(false);
+            });
+
+        genderService
+            .getAll()
+            .then((genderRes) => {
+                setGenders(genderRes.data.data);
+            })
+            .catch(() => {
+                setGenders([]);
             });
     }, [t]);
 
@@ -127,7 +184,14 @@ export default function SigninPage() {
     }, [activeLanguage]);
 
     useEffect(() => {
-        if (!email.trim()) {
+        const emailValue = email.trim();
+
+        if (!emailValue) {
+            setEmailStatus("idle");
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
             setEmailStatus("idle");
             return;
         }
@@ -135,7 +199,7 @@ export default function SigninPage() {
         setEmailStatus("checking");
         const timer = window.setTimeout(() => {
             availabilityService
-                .checkEmail(email.trim())
+                .checkEmail(emailValue)
                 .then((response) => {
                     setEmailStatus(response.data.data.exists ? "taken" : "available");
                 })
@@ -150,7 +214,14 @@ export default function SigninPage() {
     }, [email]);
 
     useEffect(() => {
-        if (!usertag.trim()) {
+        const usertagValue = usertag.trim();
+
+        if (!usertagValue) {
+            setUsertagStatus("idle");
+            return;
+        }
+
+        if (!/^[A-Za-z0-9._-]{3,30}$/.test(usertagValue)) {
             setUsertagStatus("idle");
             return;
         }
@@ -158,7 +229,7 @@ export default function SigninPage() {
         setUsertagStatus("checking");
         const timer = window.setTimeout(() => {
             availabilityService
-                .checkUsertag(usertag.trim())
+                .checkUsertag(usertagValue)
                 .then((response) => {
                     setUsertagStatus(response.data.data.exists ? "taken" : "available");
                 })
@@ -303,6 +374,16 @@ export default function SigninPage() {
         return "text-body-secondary";
     }
 
+    function goToStep2() {
+        if (hasStep1FormatErrors) {
+            setErrorMessage(t("Please fix format errors before continuing."));
+            return;
+        }
+
+        setErrorMessage(null);
+        setStep(2);
+    }
+
     return (
         <main className="container py-4 min-vh-100 d-flex align-items-center justify-content-center">
             <div className="card shadow-sm border-0" style={{ width: "100%", maxWidth: "980px" }}>
@@ -327,62 +408,80 @@ export default function SigninPage() {
                                 <label htmlFor="signin-email" className="form-label fw-semibold">
                                     {t("Email")}
                                 </label>
+                                <div className="form-text mt-0 mb-2">{t("Email format: name@example.com")}</div>
+                                <p className={`small mt-2 mb-0 ${availabilityClass(emailStatus)}`}>
+                                    {availabilityText(emailStatus, "email")}
+                                </p>
                                 <input
                                     id="signin-email"
                                     type="email"
-                                    className="form-control"
+                                    className={`form-control${email.trim() && step1FormatErrors.email ? " is-invalid" : ""}`}
                                     value={email}
                                     onChange={(event) => setEmail(event.target.value)}
                                     required
                                 />
-                                <p className={`small mt-2 mb-0 ${availabilityClass(emailStatus)}`}>
-                                    {availabilityText(emailStatus, "email")}
-                                </p>
+                                {email.trim() && step1FormatErrors.email ? (
+                                    <div className="invalid-feedback d-block">{step1FormatErrors.email}</div>
+                                ) : null}
                             </div>
 
                             <div className="col-md-6">
                                 <label htmlFor="signin-username" className="form-label fw-semibold">
                                     {t("Username")}
                                 </label>
+                                <div className="form-text mt-0 mb-2">
+                                    {t("Username format: 3-30 letters, numbers, underscore, with single spaces")}
+                                </div>
                                 <input
                                     id="signin-username"
                                     type="text"
-                                    className="form-control"
+                                    className={`form-control${username.trim() && step1FormatErrors.username ? " is-invalid" : ""}`}
                                     value={username}
                                     onChange={(event) => setUsername(event.target.value)}
                                     required
                                 />
+                                {username.trim() && step1FormatErrors.username ? (
+                                    <div className="invalid-feedback d-block">{step1FormatErrors.username}</div>
+                                ) : null}
                             </div>
 
                             <div className="col-md-6">
                                 <label htmlFor="signin-usertag" className="form-label fw-semibold">
                                     {t("Usertag")}
                                 </label>
+                                <div className="form-text mt-0 mb-2">{t("Usertag format: 3-30 letters, numbers, dot, underscore, or hyphen")}</div>
+                                <p className={`small mt-2 mb-0 ${availabilityClass(usertagStatus)}`}>
+                                    {availabilityText(usertagStatus, "usertag")}
+                                </p>
                                 <input
                                     id="signin-usertag"
                                     type="text"
-                                    className="form-control"
+                                    className={`form-control${usertag.trim() && step1FormatErrors.usertag ? " is-invalid" : ""}`}
                                     value={usertag}
                                     onChange={(event) => setUsertag(event.target.value)}
                                     required
                                 />
-                                <p className={`small mt-2 mb-0 ${availabilityClass(usertagStatus)}`}>
-                                    {availabilityText(usertagStatus, "usertag")}
-                                </p>
+                                {usertag.trim() && step1FormatErrors.usertag ? (
+                                    <div className="invalid-feedback d-block">{step1FormatErrors.usertag}</div>
+                                ) : null}
                             </div>
 
                             <div className="col-md-6">
                                 <label htmlFor="signin-password" className="form-label fw-semibold">
                                     {t("Signup password label")}
                                 </label>
+                                <div className="form-text mt-0 mb-2">{t("Password format: at least 6 characters")}</div>
                                 <input
                                     id="signin-password"
                                     type="password"
-                                    className="form-control"
+                                    className={`form-control${password.trim() && step1FormatErrors.password ? " is-invalid" : ""}`}
                                     value={password}
                                     onChange={(event) => setPassword(event.target.value)}
                                     required
                                 />
+                                {password.trim() && step1FormatErrors.password ? (
+                                    <div className="invalid-feedback d-block">{step1FormatErrors.password}</div>
+                                ) : null}
                             </div>
 
                             <div className="col-md-6">
@@ -453,8 +552,14 @@ export default function SigninPage() {
                                 <button
                                     type="button"
                                     className="btn btn-primary"
-                                    disabled={!isStep1Valid || loadingLists || emailStatus === "taken" || usertagStatus === "taken"}
-                                    onClick={() => setStep(2)}
+                                    disabled={
+                                        !isStep1Valid ||
+                                        loadingLists ||
+                                        hasStep1FormatErrors ||
+                                        emailStatus === "taken" ||
+                                        usertagStatus === "taken"
+                                    }
+                                    onClick={goToStep2}
                                 >
                                     {t("Next")}
                                 </button>
@@ -542,13 +647,9 @@ export default function SigninPage() {
                                     />
                                 ) : null}
                             </div>
-
                             <div className="col-12 d-flex flex-wrap gap-2 justify-content-end mt-2">
                                 <button type="button" className="btn btn-outline-secondary" onClick={() => setStep(1)}>
                                     {t("Previous")}
-                                </button>
-                                <button type="button" className="btn btn-outline-secondary" onClick={() => openConfirmModal(true)}>
-                                    {t("Skip")}
                                 </button>
                                 <button type="button" className="btn btn-primary" onClick={() => openConfirmModal(false)}>
                                     {t("Sign up")}
