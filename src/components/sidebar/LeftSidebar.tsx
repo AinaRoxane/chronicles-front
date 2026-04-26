@@ -26,14 +26,14 @@ export default function LeftSidebar({ isCollapsed = false, onToggleCollapse }: L
                     type="button"
                     onClick={onToggleCollapse}
                     className="w-100 border-0 bg-transparent p-0 text-start"
-                    aria-label={isCollapsed ? t("#600aria01") : t("#600aria02")}
-                    title={isCollapsed ? t("#600aria01") : t("#600aria02")}
+                    aria-label={isCollapsed ? t("Expand sidebar") : t("Collapse sidebar")}
+                    title={isCollapsed ? t("Expand sidebar") : t("Collapse sidebar")}
                 >
                     <p
                         className={`brand-logo brand-logo-desktop mb-0${isCollapsed ? " text-center" : ""}`}
                         style={isCollapsed ? { margin: "0 auto" } : {}}
                     >
-                        {isCollapsed ? t("#600logo02") : t("#600logo01")}
+                        {isCollapsed ? t("m.") : t("m.")}
                     </p>
                 </button>
             </div>
@@ -41,14 +41,14 @@ export default function LeftSidebar({ isCollapsed = false, onToggleCollapse }: L
             <div className="d-flex flex-column gap-1">
                 <SidebarNavItem
                     href="/home"
-                    label={t("#600nav01")}
+                    label={t("Home")}
                     icon={<HomeOutlinedIcon fontSize="small" />}
                     active={pathname === "/home"}
                     collapsed={isCollapsed}
                 />
                 <SidebarNavItem
                     href="/explore"
-                    label={t("#600nav02")}
+                    label={t("Explore")}
                     icon={<ExploreOutlinedIcon fontSize="small" />}
                     active={pathname === "/explore"}
                     collapsed={isCollapsed}
@@ -58,7 +58,7 @@ export default function LeftSidebar({ isCollapsed = false, onToggleCollapse }: L
 
                 <SidebarNavItem
                     href="/settings"
-                    label={t("#600nav03")}
+                    label={t("Settings")}
                     icon={<SettingsOutlinedIcon fontSize="small" />}
                     active={pathname === "/settings"}
                     collapsed={isCollapsed}
@@ -68,20 +68,20 @@ export default function LeftSidebar({ isCollapsed = false, onToggleCollapse }: L
             {!isCollapsed ? (
                 <div className="mt-auto pt-3 shell-divider-top">
                     <div className="d-flex justify-content-end gap-3 small text-secondary">
-                        <a href="#about">{t("#600footer01")}</a>
-                        <a href="#contact">{t("#600footer02")}</a>
+                        <a href="#about">{t("About")}</a>
+                        <a href="#contact">{t("Contact")}</a>
                     </div>
                 </div>
             ) : (
                 <div className="mt-auto pt-3 shell-divider-top">
                     <div className="row justify-content-center g-0">
                         <div className="col-auto">
-                            <a href="#about" aria-label={t("#600footer01")} className="text-secondary d-flex justify-content-center align-items-center">
+                            <a href="#about" aria-label={t("About")} className="text-secondary d-flex justify-content-center align-items-center">
                                 <InfoOutlinedIcon fontSize="small" />
                             </a>
                         </div>
                         <div className="col-auto">
-                            <a href="#contact" aria-label={t("#600footer02")} className="text-secondary d-flex justify-content-center align-items-center">
+                            <a href="#contact" aria-label={t("Contact")} className="text-secondary d-flex justify-content-center align-items-center">
                                 <AlternateEmailOutlinedIcon fontSize="small" />
                             </a>
                         </div>

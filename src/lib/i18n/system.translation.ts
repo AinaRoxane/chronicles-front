@@ -1,7 +1,8 @@
+// src/lib/i18n/system.translation.ts
+
 export type TranslationRow = {
-    component_id: string;
+    key: string;
     translation: string;
-    key?: string;
 };
 
 export type TranslationPayload = Record<string, TranslationRow[]>;
@@ -18,15 +19,8 @@ export function buildTranslationIndex(payload: TranslationPayload): TranslationI
         index[pageTitle] = {};
 
         for (const row of rows) {
-            if (!row.component_id || !row.translation) {
-                continue;
-            }
-
-            index[pageTitle][row.component_id] = row.translation;
-
-            if (row.key) {
-                index[pageTitle][row.key] = row.translation;
-            }
+            if (!row.key || !row.translation) continue;
+            index[pageTitle][row.key] = row.translation;
         }
     }
 
@@ -36,24 +30,16 @@ export function buildTranslationIndex(payload: TranslationPayload): TranslationI
 export function getTranslatedText(
     index: TranslationIndex,
     pageTitle: string,
-    componentId: string
+    key: string
 ): string {
     const pageMap = index[pageTitle];
-    if (!pageMap) {
-        return componentId;
-    }
-
-    const translatedValue = pageMap[componentId];
-    if (!translatedValue) {
-        return componentId;
-    }
-
-    return translatedValue;
+    if (!pageMap) return key;
+    return pageMap[key] ?? key;
 }
 
 export function getPageTranslator(
     index: TranslationIndex,
     pageTitle: string
-): (componentId: string) => string {
-    return (componentId: string) => getTranslatedText(index, pageTitle, componentId);
+): (key: string) => string {
+    return (key: string) => getTranslatedText(index, pageTitle, key);
 }

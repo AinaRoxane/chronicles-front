@@ -27,11 +27,11 @@ export default function SettingsPage() {
             <div className="row ">
                 <div className="col-1"></div>
                 <section className="col-10 border rounded justify-content-center p-3">
-                    <h1 className="h5 shell-divider-bottom pb-3">{t("#400title01")}</h1>
+                    <h1 className="h5 shell-divider-bottom pb-3">{t("Settings")}</h1>
                     {/* system language selector */}
                     <div className="row ">
                         <div className="col-7">
-                            <p className="mb-2">{t("#400label01")}</p>
+                            <p className="mb-2">{t("Default system language")}</p>
                         </div>
                         <div className="col-5">
                             <select
@@ -42,11 +42,11 @@ export default function SettingsPage() {
                                 disabled={loading}
                             >
                                 {loading ? (
-                                    <option>{t("#400status01")}</option>
+                                    <option>{t("Loading languages...")}</option>
                                 ) : (
                                     <>
                                         {languages.length === 0 ? (
-                                            <option value="">{t("#400placeholder01")}</option>
+                                            <option value="">{t("Choose a language")}</option>
                                         ) : null}
                                         {languages.map((lang) => (
                                             <option key={lang.id} value={lang.code.toUpperCase()}>

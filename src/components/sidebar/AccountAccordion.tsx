@@ -12,10 +12,10 @@ import { useState } from "react";
 import { useAuthStatus } from "@/components/providers/AuthStatusProvider";
 
 const accountItems = [
-    { labelId: "#700item01", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" />, path: "/account/profile" },
-    { labelId: "#700item02", section: "notifications", icon: <NotificationsNoneOutlinedIcon fontSize="small" />, path: "/account/notifications" },
-    { labelId: "#700item03", section: "purchases", icon: <ShoppingBagOutlinedIcon fontSize="small" />, path: "/account/purchases" },
-    { labelId: "#700item04", section: "subscriptions", icon: <SubscriptionsOutlinedIcon fontSize="small" />, path: "/account/subscriptions" },
+    { key: "Profile", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" />, path: "/account/profile" },
+    { key: "Notifications", section: "notifications", icon: <NotificationsNoneOutlinedIcon fontSize="small" />, path: "/account/notifications" },
+    { key: "Purchases", section: "purchases", icon: <ShoppingBagOutlinedIcon fontSize="small" />, path: "/account/purchases" },
+    { key: "Subscriptions", section: "subscriptions", icon: <SubscriptionsOutlinedIcon fontSize="small" />, path: "/account/subscriptions" },
 ];
 
 type AccountAccordionProps = {
@@ -41,14 +41,14 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
         return (
             <Link
                 href="/account/profile"
-                aria-label={t("#700title01")}
+                aria-label={t("Account")}
                 className={`sidebar-nav-item d-flex align-items-center justify-content-center px-2 py-2 ${isAccountRoute ? "active" : ""
                     }`}
             >
                 <span aria-hidden="true" className="d-inline-flex align-items-center">
                     <PersonOutlineOutlinedIcon fontSize="small" />
                 </span>
-                <span className="visually-hidden">{t("#700title01")}</span>
+                <span className="visually-hidden">{t("Account")}</span>
             </Link>
         );
     }
@@ -64,7 +64,7 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
             >
                 <span className="d-flex align-items-center gap-2">
                     <PersonOutlineOutlinedIcon fontSize="small" />
-                    <span>{t("#700title01")}</span>
+                    <span>{t("Account")}</span>
                 </span>
                 <ExpandMoreOutlinedIcon
                     fontSize="small"
@@ -86,7 +86,7 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
                                 <span aria-hidden="true" className="d-inline-flex align-items-center">
                                     {item.icon}
                                 </span>
-                                <span>{t(item.labelId)}</span>
+                                <span>{t(item.key)}</span>
                             </Link>
                         );
                     })}
