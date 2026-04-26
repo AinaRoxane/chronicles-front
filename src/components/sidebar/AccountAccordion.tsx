@@ -7,23 +7,15 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
 import { usePageTranslation } from "@/components/providers/LanguageProvider";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { useAuthStatus } from "@/components/providers/AuthStatusProvider";
 
 const accountItems = [
-    { labelId: "#700item01", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" /> },
-    {
-        labelId: "#700item02",
-        section: "notifications",
-        icon: <NotificationsNoneOutlinedIcon fontSize="small" />,
-    },
-    { labelId: "#700item03", section: "purchases", icon: <ShoppingBagOutlinedIcon fontSize="small" /> },
-    {
-        labelId: "#700item04",
-        section: "subscriptions",
-        icon: <SubscriptionsOutlinedIcon fontSize="small" />,
-    },
+    { labelId: "#700item01", section: "profile", icon: <PersonOutlineOutlinedIcon fontSize="small" />, path: "/account/profile" },
+    { labelId: "#700item02", section: "notifications", icon: <NotificationsNoneOutlinedIcon fontSize="small" />, path: "/account/notifications" },
+    { labelId: "#700item03", section: "purchases", icon: <ShoppingBagOutlinedIcon fontSize="small" />, path: "/account/purchases" },
+    { labelId: "#700item04", section: "subscriptions", icon: <SubscriptionsOutlinedIcon fontSize="small" />, path: "/account/subscriptions" },
 ];
 
 type AccountAccordionProps = {
@@ -33,13 +25,13 @@ type AccountAccordionProps = {
 
 export default function AccountAccordion({ collapsed = false, defaultOpen = false }: AccountAccordionProps) {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
     const t = usePageTranslation("account_accordion");
     const { isLoggedIn } = useAuthStatus();
     const isAccountRoute = pathname.startsWith("/account");
     const [isOpen, setIsOpen] = useState(isAccountRoute || defaultOpen);
 
-    const activeSection = useMemo(() => searchParams.get("section"), [searchParams]);
+    // Determine active section from the path (e.g., "/account/profile" → "profile")
+    const activeSection = pathname.startsWith("/account/") ? pathname.split("/").pop() : null;
 
     if (!isLoggedIn) {
         return null;
@@ -48,7 +40,7 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
     if (collapsed) {
         return (
             <Link
-                href="/account?section=profile"
+                href="/account/profile"
                 aria-label={t("#700title01")}
                 className={`sidebar-nav-item d-flex align-items-center justify-content-center px-2 py-2 ${isAccountRoute ? "active" : ""
                     }`}
@@ -83,12 +75,12 @@ export default function AccountAccordion({ collapsed = false, defaultOpen = fals
             {isOpen ? (
                 <div id="account-accordion-items" className="d-flex flex-column gap-1 mt-2 ps-4">
                     {accountItems.map((item) => {
-                        const isActive = isAccountRoute && activeSection === item.section;
+                        const isActive = activeSection === item.section;
 
                         return (
                             <Link
                                 key={item.section}
-                                href={`/account?section=${item.section}`}
+                                href={item.path}
                                 className={`sidebar-nav-item d-flex align-items-center gap-2 px-2 py-2 ${isActive ? "active" : ""}`}
                             >
                                 <span aria-hidden="true" className="d-inline-flex align-items-center">
