@@ -26,7 +26,7 @@ export default function SettingsPage() {
         <SectionPage>
             <div className="row ">
                 <div className="col-1"></div>
-                <section className="col-11 border rounded justify-content-center p-3">
+                <section className="col-10 border rounded justify-content-center p-3">
                     <h1 className="h5 shell-divider-bottom pb-3">{t("#400title01")}</h1>
                     {/* system language selector */}
                     <div className="row ">
@@ -59,6 +59,7 @@ export default function SettingsPage() {
                         </div>
                     </div>
                 </section>
+                <div className="col-1"></div>
             </div>
         </SectionPage>
     );

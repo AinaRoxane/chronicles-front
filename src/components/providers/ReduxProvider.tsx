@@ -1,17 +1,14 @@
+// components/providers/ReduxProvider.tsx
 "use client";
 
-import { loadAuth } from "@/store/auth.slice";
 import { Provider } from "react-redux";
 import store from "@/store";
 import { useEffect } from "react";
+import { refreshTokenThunk } from "@/store/auth.slice";
 
-type ReduxProviderProps = {
-    children: React.ReactNode;
-};
-
-export default function ReduxProvider({ children }: ReduxProviderProps) {
+export default function ReduxProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
-        store.dispatch(loadAuth());
+        store.dispatch(refreshTokenThunk());
     }, []);
 
     return <Provider store={store}>{children}</Provider>;

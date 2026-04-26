@@ -10,16 +10,11 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode
 }) {
-    const cookieStore = await cookies();
-    const hasRefreshToken = ["refresh-token", "refresh_token", "refreshToken"].some((name) =>
-        cookieStore.has(name)
-    );
-
     return (
         <html lang="en">
             <body>
                 <ReduxProvider>
-                    <AuthStatusProvider initialLoggedIn={hasRefreshToken}>
+                    <AuthStatusProvider>
                         <LanguageProvider>{children}</LanguageProvider>
                     </AuthStatusProvider>
                 </ReduxProvider>
